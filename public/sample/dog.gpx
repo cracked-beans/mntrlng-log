@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="mntrlng-log sample" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk><name>Demo Dog Track</name>
+    <trkseg>
+      <trkpt lat="47.49801" lon="19.04020"><ele>110</ele></trkpt>
+      <trkpt lat="47.49830" lon="19.04055"><ele>110</ele></trkpt>
+      <trkpt lat="47.49860" lon="19.04100"><ele>111</ele></trkpt>
+      <trkpt lat="47.49902" lon="19.04140"><ele>112</ele></trkpt>
+      <trkpt lat="47.49955" lon="19.04190"><ele>112</ele></trkpt>
+      <trkpt lat="47.50010" lon="19.04220"><ele>113</ele></trkpt>
+      <trkpt lat="47.50080" lon="19.04250"><ele>113</ele></trkpt>
+      <trkpt lat="47.50140" lon="19.04300"><ele>114</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

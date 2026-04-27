@@ -4,7 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { nanoid } from 'nanoid';
 import { ArrowLeft, MapPin, Save, Trash2 } from 'lucide-react';
 import { db } from '@/db/db';
-import type { Entry } from '@/db/schema';
+import type { Attachment, Entry } from '@/db/schema';
 import { todayISO } from '@/lib/format';
 import { Section } from '@/components/form/Section';
 import { Segmented } from '@/components/form/Segmented';
@@ -12,6 +12,8 @@ import { ChipMulti } from '@/components/form/ChipMulti';
 import { ComponentAssessor } from '@/components/form/ComponentAssessor';
 import { Rating5 } from '@/components/form/Rating5';
 import { TagInput } from '@/components/form/TagInput';
+import { GpxPicker } from '@/components/GpxPicker';
+import { TrailMap } from '@/components/TrailMap';
 import { collectAllTags } from '@/lib/filter';
 import {
   AGE_OF_TRAIL,
@@ -57,6 +59,7 @@ export default function NewEntryScreen() {
   const defaultDogId = useMemo(() => dogs?.find((d) => d.isDefault)?.id ?? dogs?.[0]?.id, [dogs]);
 
   const [entry, setEntry] = useState<Entry | null>(null);
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -64,7 +67,11 @@ export default function NewEntryScreen() {
     (async () => {
       if (isEdit && id) {
         const existing = await db.entries.get(id);
-        if (!cancelled && existing) setEntry(existing);
+        const existingAtt = await db.attachments.where({ entryId: id }).toArray();
+        if (!cancelled && existing) {
+          setEntry(existing);
+          setAttachments(existingAtt);
+        }
       } else if (defaultDogId && !entry) {
         setEntry(blankEntry(defaultDogId));
       }
@@ -95,7 +102,11 @@ export default function NewEntryScreen() {
   const handleSave = async () => {
     if (!entry) return;
     setSaving(true);
-    await db.entries.put({ ...entry, updatedAt: Date.now() });
+    await db.transaction('rw', db.entries, db.attachments, async () => {
+      await db.entries.put({ ...entry, updatedAt: Date.now() });
+      await db.attachments.where({ entryId: entry.id }).delete();
+      if (attachments.length) await db.attachments.bulkAdd(attachments);
+    });
     setSaving(false);
     navigate('/', { replace: true });
   };
@@ -311,7 +322,23 @@ export default function NewEntryScreen() {
         </div>
       </Section>
 
-      <p className="text-xs text-muted text-center">Attachments (GPX, photos, video links) coming next.</p>
+      <Section title="GPX tracks" defaultOpen={false}>
+        <GpxPicker
+          entryId={entry.id}
+          value={attachments.filter((a) => a.kind === 'gpx')}
+          onChange={(next) => setAttachments([...attachments.filter((a) => a.kind !== 'gpx'), ...next])}
+        />
+        {attachments.some((a) => a.kind === 'gpx') && (
+          <TrailMap
+            attachments={attachments.filter((a) => a.kind === 'gpx')}
+            startMarker={entry.geo ? [entry.geo.lat, entry.geo.lng] : undefined}
+            height={240}
+            className="mt-2"
+          />
+        )}
+      </Section>
+
+      <p className="text-xs text-muted text-center">Photos and video links coming next.</p>
 
       {isEdit && (
         <button onClick={handleDelete} className="btn-ghost w-full text-bad">
