@@ -86,6 +86,8 @@ export function FilterBar({ allTags, defaultOpen = false, alwaysOpen = false, re
                 {allTags.map((t) => (
                   <button
                     key={t}
+                    role="checkbox"
+                    aria-checked={filters.tags.includes(t)}
                     onClick={() => toggleTag(t)}
                     className={`chip ${filters.tags.includes(t) ? 'chip-on' : ''}`}
                   >

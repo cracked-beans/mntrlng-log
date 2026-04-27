@@ -56,6 +56,9 @@ export function ComponentAssessor({ value, onChange }: Props) {
                   <button
                     key={s}
                     type="button"
+                    role="radio"
+                    aria-checked={on}
+                    aria-label={COMPONENT_STATUS[s].label}
                     onClick={() => updateAt(i, { status: s })}
                     className={`chip ${on ? 'chip-on' : ''} ${on ? cls : ''}`}
                   >

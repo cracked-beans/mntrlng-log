@@ -13,7 +13,7 @@ export function BottomNav() {
   return (
     <nav
       className="sticky bottom-0 z-30 bg-surface/95 backdrop-blur border-t border-line safe-bottom"
-      aria-label="Primary"
+      aria-label="Main navigation"
     >
       <ul className="grid grid-cols-5 max-w-app mx-auto">
         {items.map(({ to, label, icon: Icon, end }) => (
