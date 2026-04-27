@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { BottomNav } from '@/components/BottomNav';
 import MainScreen from '@/screens/MainScreen';
 import NewEntryScreen from '@/screens/NewEntryScreen';
+import EntryDetailScreen from '@/screens/EntryDetailScreen';
 import HistoryScreen from '@/screens/HistoryScreen';
 import SearchScreen from '@/screens/SearchScreen';
 import SettingsScreen from '@/screens/SettingsScreen';
@@ -25,7 +26,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MainScreen />} />
           <Route path="/new" element={<NewEntryScreen />} />
-          <Route path="/entry/:id" element={<NewEntryScreen />} />
+          <Route path="/entry/:id" element={<EntryDetailScreen />} />
           <Route path="/entry/:id/edit" element={<NewEntryScreen />} />
           <Route path="/history" element={<HistoryScreen />} />
           <Route path="/search" element={<SearchScreen />} />
