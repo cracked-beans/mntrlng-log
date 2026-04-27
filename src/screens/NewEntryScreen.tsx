@@ -13,7 +13,9 @@ import { ComponentAssessor } from '@/components/form/ComponentAssessor';
 import { Rating5 } from '@/components/form/Rating5';
 import { TagInput } from '@/components/form/TagInput';
 import { GpxPicker } from '@/components/GpxPicker';
+import { PhotoPicker } from '@/components/PhotoPicker';
 import { TrailMap } from '@/components/TrailMap';
+import { VideoLinkList } from '@/components/VideoLinkList';
 import { collectAllTags } from '@/lib/filter';
 import {
   AGE_OF_TRAIL,
@@ -338,7 +340,21 @@ export default function NewEntryScreen() {
         )}
       </Section>
 
-      <p className="text-xs text-muted text-center">Photos and video links coming next.</p>
+      <Section title="Photos" defaultOpen={false}>
+        <PhotoPicker
+          entryId={entry.id}
+          value={attachments.filter((a) => a.kind === 'photo')}
+          onChange={(next) => setAttachments([...attachments.filter((a) => a.kind !== 'photo'), ...next])}
+        />
+      </Section>
+
+      <Section title="Video links" defaultOpen={false}>
+        <VideoLinkList
+          entryId={entry.id}
+          value={attachments.filter((a) => a.kind === 'video_link')}
+          onChange={(next) => setAttachments([...attachments.filter((a) => a.kind !== 'video_link'), ...next])}
+        />
+      </Section>
 
       {isEdit && (
         <button onClick={handleDelete} className="btn-ghost w-full text-bad">
