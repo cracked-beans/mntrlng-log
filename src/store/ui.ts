@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { nanoid } from 'nanoid';
 
 export type Density = 'small' | 'compact' | 'detailed';
 export type Theme = 'light' | 'dark' | 'system';
@@ -10,6 +11,12 @@ export interface FilterState {
   dateFrom?: string; // YYYY-MM-DD
   dateTo?: string;   // YYYY-MM-DD
   dogId?: string;
+}
+
+export interface FilterPreset {
+  id: string;
+  name: string;
+  filters: FilterState;
 }
 
 interface UIState {
@@ -26,6 +33,11 @@ interface UIState {
   filters: FilterState;
   setFilters: (patch: Partial<FilterState>) => void;
   resetFilters: () => void;
+
+  presets: FilterPreset[];
+  savePreset: (name: string, filters: FilterState) => void;
+  deletePreset: (id: string) => void;
+  loadPreset: (id: string) => void;
 }
 
 const emptyFilters: FilterState = { query: '', tags: [] };
@@ -53,7 +65,17 @@ export const useUI = create<UIState>()(
 
       filters: emptyFilters,
       setFilters: (patch) => set({ filters: { ...get().filters, ...patch } }),
-      resetFilters: () => set({ filters: emptyFilters })
+      resetFilters: () => set({ filters: emptyFilters }),
+
+      presets: [],
+      savePreset: (name, filters) =>
+        set({ presets: [...get().presets, { id: nanoid(), name, filters }] }),
+      deletePreset: (id) =>
+        set({ presets: get().presets.filter((p) => p.id !== id) }),
+      loadPreset: (id) => {
+        const preset = get().presets.find((p) => p.id === id);
+        if (preset) set({ filters: preset.filters });
+      }
     }),
     { name: 'mtlog.ui' }
   )
