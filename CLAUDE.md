@@ -2,7 +2,7 @@
 
 This is a mobile-first PWA prototype for logging mantrailing training sessions.
 Stack: Vite + React + TypeScript + Tailwind + Dexie (IndexedDB) + Leaflet + Recharts.
-All data is local-only. See `/root/.claude/plans/root-claude-uploads-3e83f085-afbf-4428-linear-moon.md` for the full domain model and plan.
+All data is local-only. See [`docs/PLAN.md`](./docs/PLAN.md) for the full domain model and plan.
 
 ## Stream Timeout Prevention
 
