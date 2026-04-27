@@ -5,6 +5,8 @@ import { Plus, LayoutGrid, List, Rows3 } from 'lucide-react';
 import { db } from '@/db/db';
 import { useUI, type Density } from '@/store/ui';
 import { EntryTile } from '@/components/EntryTile';
+import { FilterBar } from '@/components/FilterBar';
+import { applyFilters, collectAllTags } from '@/lib/filter';
 
 const DENSITY_OPTIONS: { value: Density; label: string; Icon: typeof LayoutGrid }[] = [
   { value: 'small', label: 'Small', Icon: List },
@@ -15,7 +17,7 @@ const DENSITY_OPTIONS: { value: Density; label: string; Icon: typeof LayoutGrid 
 export default function MainScreen() {
   const density = useUI((s) => s.density);
   const setDensity = useUI((s) => s.setDensity);
-  const activeDogId = useUI((s) => s.activeDogId);
+  const filters = useUI((s) => s.filters);
 
   const dogs = useLiveQuery(() => db.dogs.orderBy('name').toArray(), [], []);
   const entries = useLiveQuery(
@@ -30,11 +32,11 @@ export default function MainScreen() {
     return m;
   }, [dogs]);
 
-  const filtered = useMemo(() => {
-    if (!entries) return [];
-    if (!activeDogId) return entries;
-    return entries.filter((e) => e.dogId === activeDogId);
-  }, [entries, activeDogId]);
+  const allTags = useMemo(() => collectAllTags(entries ?? []), [entries]);
+  const filtered = useMemo(
+    () => applyFilters(entries ?? [], filters, { dogs }),
+    [entries, filters, dogs]
+  );
 
   return (
     <div className="p-4 space-y-4">
@@ -57,8 +59,10 @@ export default function MainScreen() {
         </div>
       </header>
 
+      <FilterBar allTags={allTags} />
+
       {filtered.length === 0 ? (
-        <EmptyState />
+        <EmptyState hasEntries={(entries?.length ?? 0) > 0} />
       ) : (
         <ul className="space-y-2">
           {filtered.map((e) => (
@@ -80,13 +84,15 @@ export default function MainScreen() {
   );
 }
 
-function EmptyState() {
+function EmptyState({ hasEntries }: { hasEntries: boolean }) {
   return (
     <div className="card p-6 text-center space-y-3">
       <div className="text-3xl">🐾</div>
-      <h2 className="font-medium">No entries yet</h2>
+      <h2 className="font-medium">{hasEntries ? 'No matching entries' : 'No entries yet'}</h2>
       <p className="text-sm text-muted">
-        Tap the <strong>+</strong> button to log your first trail, or load a small set of demo entries from Settings.
+        {hasEntries
+          ? 'Try clearing the filters above.'
+          : 'Tap the + button to log your first trail, or load a small set of demo entries from Settings.'}
       </p>
     </div>
   );
