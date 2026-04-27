@@ -1,23 +1,39 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
-function Placeholder({ title }: { title: string }) {
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold">{title}</h1>
-      <p className="text-muted mt-2">Coming next.</p>
-    </div>
-  );
-}
+import { BottomNav } from '@/components/BottomNav';
+import MainScreen from '@/screens/MainScreen';
+import NewEntryScreen from '@/screens/NewEntryScreen';
+import HistoryScreen from '@/screens/HistoryScreen';
+import SearchScreen from '@/screens/SearchScreen';
+import SettingsScreen from '@/screens/SettingsScreen';
+import { useUI } from '@/store/ui';
 
 export default function App() {
+  const applyTheme = useUI((s) => s.applyTheme);
+
+  useEffect(() => {
+    applyTheme();
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => applyTheme();
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, [applyTheme]);
+
   return (
-    <div className="min-h-screen flex flex-col safe-top safe-bottom">
-      <main className="flex-1 max-w-app mx-auto w-full">
+    <div className="min-h-screen flex flex-col safe-top">
+      <main className="flex-1 max-w-app mx-auto w-full pb-2">
         <Routes>
-          <Route path="/" element={<Placeholder title="Mantrailing Log" />} />
+          <Route path="/" element={<MainScreen />} />
+          <Route path="/new" element={<NewEntryScreen />} />
+          <Route path="/entry/:id" element={<NewEntryScreen />} />
+          <Route path="/entry/:id/edit" element={<NewEntryScreen />} />
+          <Route path="/history" element={<HistoryScreen />} />
+          <Route path="/search" element={<SearchScreen />} />
+          <Route path="/settings" element={<SettingsScreen />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <BottomNav />
     </div>
   );
 }
