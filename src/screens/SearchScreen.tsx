@@ -101,7 +101,11 @@ export default function SearchScreen() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="text-sm text-muted text-center py-6">No matches.</p>
+        <div className="card p-6 text-center space-y-2">
+          <div className="text-3xl">🔍</div>
+          <p className="font-medium">No results</p>
+          <p className="text-sm text-muted">Try different filters or clear them to see all entries.</p>
+        </div>
       ) : (
         <ul className="space-y-2">
           {filtered.map((e) => (
