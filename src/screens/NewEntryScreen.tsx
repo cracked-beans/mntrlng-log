@@ -10,6 +10,9 @@ import { Section } from '@/components/form/Section';
 import { Segmented } from '@/components/form/Segmented';
 import { ChipMulti } from '@/components/form/ChipMulti';
 import { ComponentAssessor } from '@/components/form/ComponentAssessor';
+import { Rating5 } from '@/components/form/Rating5';
+import { TagInput } from '@/components/form/TagInput';
+import { collectAllTags } from '@/lib/filter';
 import {
   AGE_OF_TRAIL,
   AREA_KIND,
@@ -49,6 +52,8 @@ export default function NewEntryScreen() {
   const isEdit = !!id;
 
   const dogs = useLiveQuery(() => db.dogs.orderBy('name').toArray(), [], []);
+  const allEntries = useLiveQuery(() => db.entries.toArray(), [], []);
+  const tagSuggestions = useMemo(() => collectAllTags(allEntries ?? []), [allEntries]);
   const defaultDogId = useMemo(() => dogs?.find((d) => d.isDefault)?.id ?? dogs?.[0]?.id, [dogs]);
 
   const [entry, setEntry] = useState<Entry | null>(null);
@@ -242,7 +247,71 @@ export default function NewEntryScreen() {
         />
       </Section>
 
-      <p className="text-xs text-muted text-center">Ratings and attachments coming next.</p>
+      <Section title="Assessment" defaultOpen={false}>
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium">Handler</h3>
+          <Rating5 label="Starting routine" value={entry.handlerEval?.startingRoutine}
+            onChange={(v) => update('handlerEval', { ...(entry.handlerEval ?? {}), startingRoutine: v })} />
+          <Rating5 label="Leash handling" value={entry.handlerEval?.leashHandling}
+            onChange={(v) => update('handlerEval', { ...(entry.handlerEval ?? {}), leashHandling: v })} />
+          <Rating5 label="Body position" value={entry.handlerEval?.bodyPosition}
+            onChange={(v) => update('handlerEval', { ...(entry.handlerEval ?? {}), bodyPosition: v })} />
+          <Rating5 label="Reading the dog" value={entry.handlerEval?.readingTheDog}
+            onChange={(v) => update('handlerEval', { ...(entry.handlerEval ?? {}), readingTheDog: v })} />
+          <textarea
+            className="field"
+            placeholder="Handler comments"
+            value={entry.handlerEval?.comments ?? ''}
+            onChange={(e) => update('handlerEval', { ...(entry.handlerEval ?? {}), comments: e.target.value || undefined })}
+          />
+        </div>
+        <div className="space-y-2 pt-2 border-t border-line">
+          <h3 className="text-sm font-medium">Dog</h3>
+          <Rating5 label="Motivation" value={entry.dogEval?.motivation}
+            onChange={(v) => update('dogEval', { ...(entry.dogEval ?? {}), motivation: v })} />
+          <Rating5 label="Confidence" value={entry.dogEval?.confidence}
+            onChange={(v) => update('dogEval', { ...(entry.dogEval ?? {}), confidence: v })} />
+          <Rating5 label="Negatives" value={entry.dogEval?.negatives}
+            onChange={(v) => update('dogEval', { ...(entry.dogEval ?? {}), negatives: v })} />
+          <Rating5 label="Other" value={entry.dogEval?.other}
+            onChange={(v) => update('dogEval', { ...(entry.dogEval ?? {}), other: v })} />
+          <textarea
+            className="field"
+            placeholder="Dog comments"
+            value={entry.dogEval?.comments ?? ''}
+            onChange={(e) => update('dogEval', { ...(entry.dogEval ?? {}), comments: e.target.value || undefined })}
+          />
+        </div>
+        <label className="block pt-2 border-t border-line">
+          <span className="label">Trail comments (assessment)</span>
+          <textarea className="field min-h-20"
+            value={entry.trailComments ?? ''}
+            onChange={(e) => update('trailComments', e.target.value || undefined)}
+            placeholder="What went well, what to work on…"
+          />
+        </label>
+        <label className="block">
+          <span className="label">Observations (we don't decide)</span>
+          <textarea className="field min-h-20"
+            value={entry.observations ?? ''}
+            onChange={(e) => update('observations', e.target.value || undefined)}
+            placeholder="Distractions, unexpected situations, problems of runner / dog / handler…"
+          />
+        </label>
+      </Section>
+
+      <Section title="Tags & notes" defaultOpen={false}>
+        <div>
+          <span className="label">Tags</span>
+          <TagInput
+            value={entry.tags}
+            onChange={(next) => update('tags', next)}
+            suggestions={tagSuggestions}
+          />
+        </div>
+      </Section>
+
+      <p className="text-xs text-muted text-center">Attachments (GPX, photos, video links) coming next.</p>
 
       {isEdit && (
         <button onClick={handleDelete} className="btn-ghost w-full text-bad">
