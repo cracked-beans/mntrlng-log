@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="mntrlng-log sample" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk><name>Demo Runner Track</name>
+    <trkseg>
+      <trkpt lat="47.49805" lon="19.04030"><ele>110</ele></trkpt>
+      <trkpt lat="47.49840" lon="19.04075"><ele>111</ele></trkpt>
+      <trkpt lat="47.49885" lon="19.04130"><ele>112</ele></trkpt>
+      <trkpt lat="47.49945" lon="19.04185"><ele>113</ele></trkpt>
+      <trkpt lat="47.50020" lon="19.04230"><ele>113</ele></trkpt>
+      <trkpt lat="47.50100" lon="19.04280"><ele>114</ele></trkpt>
+      <trkpt lat="47.50170" lon="19.04335"><ele>114</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
