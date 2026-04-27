@@ -9,6 +9,7 @@ import { todayISO } from '@/lib/format';
 import { Section } from '@/components/form/Section';
 import { Segmented } from '@/components/form/Segmented';
 import { ChipMulti } from '@/components/form/ChipMulti';
+import { ComponentAssessor } from '@/components/form/ComponentAssessor';
 import {
   AGE_OF_TRAIL,
   AREA_KIND,
@@ -225,7 +226,23 @@ export default function NewEntryScreen() {
         </div>
       </Section>
 
-      <p className="text-xs text-muted text-center">More sections (components, ratings, attachments) coming next.</p>
+      <Section title="Components">
+        <label className="block">
+          <span className="label">Goal of the trail</span>
+          <textarea
+            className="field min-h-20"
+            value={entry.goal ?? ''}
+            onChange={(e) => update('goal', e.target.value || undefined)}
+            placeholder="e.g. Confirm Door ID under mild distractions"
+          />
+        </label>
+        <ComponentAssessor
+          value={entry.components}
+          onChange={(next) => update('components', next)}
+        />
+      </Section>
+
+      <p className="text-xs text-muted text-center">Ratings and attachments coming next.</p>
 
       {isEdit && (
         <button onClick={handleDelete} className="btn-ghost w-full text-bad">
