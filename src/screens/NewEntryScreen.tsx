@@ -83,10 +83,16 @@ export default function NewEntryScreen() {
 
   if (!entry) {
     return (
-      <div className="p-6 text-muted">
-        {dogs && dogs.length === 0
-          ? 'Add a dog in Settings first.'
-          : 'Loading…'}
+      <div className="p-6 space-y-3">
+        {dogs && dogs.length === 0 ? (
+          <div className="card p-6 text-center space-y-3">
+            <div className="text-3xl">🐶</div>
+            <h2 className="font-medium">Add a dog first</h2>
+            <p className="text-sm text-muted">Go to Settings → Dogs → Add to create your first dog profile.</p>
+          </div>
+        ) : (
+          <p className="text-muted">Loading…</p>
+        )}
       </div>
     );
   }
