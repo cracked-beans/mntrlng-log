@@ -70,6 +70,10 @@ const TAGS = [
   ['long-trail', 'blind'], ['refresh'], []
 ];
 
+let rng = 1; // deterministic-ish
+const det = () => { rng = (rng * 1664525 + 1013904223) & 0xffffffff; return Math.abs(rng) / 0x7fffffff; };
+const detPick = (arr) => arr[Math.floor(det() * arr.length)];
+
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const pickN = (arr, n) => {
   const copy = [...arr];
@@ -83,7 +87,6 @@ const pickN = (arr, n) => {
 
 // ── Generate entries ──────────────────────────────────────────────────────────
 
-// Spread 30 entries over the last 12 months, denser in recent months
 const TODAY = new Date('2026-04-28');
 const dateISO = (daysAgo) => {
   const d = new Date(TODAY);
@@ -91,19 +94,25 @@ const dateISO = (daysAgo) => {
   return d.toISOString().slice(0, 10);
 };
 
-// Roughly 30 dates spread across 365 days, clustered toward recent
-const DAYS_AGO = [
-  0, 2, 4, 7, 9, 12, 15, 18, 22, 26,
-  30, 35, 42, 50, 58, 65, 73, 82, 91, 105,
-  120, 138, 155, 172, 190, 215, 240, 270, 310, 355
-];
+// Build a realistic training calendar: 3-5 sessions/week recently, tapering
+// to 1-2/week a year ago. Some days have 2 sessions (both dogs).
+const DAYS_AGO = [];
+// Last 90 days: training ~4x/week → session every 1-2 days
+for (let d = 0; d <= 90; d += det() < 0.55 ? 1 : 2) DAYS_AGO.push(d);
+// 91-180 days ago: ~3x/week
+for (let d = 91; d <= 180; d += det() < 0.4 ? 2 : 3) DAYS_AGO.push(d);
+// 181-270 days ago: ~2x/week
+for (let d = 181; d <= 270; d += det() < 0.3 ? 3 : 4) DAYS_AGO.push(d);
+// 271-365 days ago: ~1x/week
+for (let d = 271; d <= 365; d += det() < 0.2 ? 5 : 7) DAYS_AGO.push(d);
+
+// Duplicate ~20% of days so both dogs train on the same day
+const extraDays = DAYS_AGO.filter(() => det() < 0.2);
+DAYS_AGO.push(...extraDays);
+DAYS_AGO.sort((a, b) => a - b);
 
 const dogs = [dog1, dog2];
 const handlers = [handler1, handler2];
-
-let rng = 1; // deterministic-ish
-const det = () => { rng = (rng * 1664525 + 1013904223) & 0xffffffff; return Math.abs(rng) / 0x7fffffff; };
-const detPick = (arr) => arr[Math.floor(det() * arr.length)];
 
 const entries = DAYS_AGO.map((daysAgo, i) => {
   const dog = i % 3 === 0 ? dog2 : dog1;
