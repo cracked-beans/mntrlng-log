@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
+import { X } from 'lucide-react';
 import { db } from '@/db/db';
 import type { Entry } from '@/db/schema';
 import { FilterBar } from '@/components/FilterBar';
@@ -20,6 +21,10 @@ const lengthOrder = ['<100', '100-200', '200-300', '400-600', '600-800', '>800']
 export default function SearchScreen() {
   const density = useUI((s) => s.density);
   const filters = useUI((s) => s.filters);
+  const presets = useUI((s) => s.presets);
+  const savePreset = useUI((s) => s.savePreset);
+  const deletePreset = useUI((s) => s.deletePreset);
+  const loadPreset = useUI((s) => s.loadPreset);
   const [sort, setSort] = useState<Sort>('newest');
 
   const dogs = useLiveQuery(() => db.dogs.orderBy('name').toArray(), [], []);
@@ -67,8 +72,40 @@ export default function SearchScreen() {
         ))}
       </div>
 
+      <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        <button
+          type="button"
+          className="btn-outline text-xs shrink-0 py-1 px-2"
+          onClick={() => {
+            const name = prompt('Preset name?')?.trim();
+            if (name) savePreset(name, filters);
+          }}
+        >
+          + Save preset
+        </button>
+        {presets.map((p) => (
+          <span key={p.id} className="chip chip-on flex items-center gap-1 shrink-0">
+            <button type="button" onClick={() => loadPreset(p.id)} className="leading-none">
+              {p.name}
+            </button>
+            <button
+              type="button"
+              aria-label={`Delete preset ${p.name}`}
+              onClick={() => deletePreset(p.id)}
+              className="leading-none opacity-60 hover:opacity-100"
+            >
+              <X size={12} />
+            </button>
+          </span>
+        ))}
+      </div>
+
       {filtered.length === 0 ? (
-        <p className="text-sm text-muted text-center py-6">No matches.</p>
+        <div className="card p-6 text-center space-y-2">
+          <div className="text-3xl">🔍</div>
+          <p className="font-medium">No results</p>
+          <p className="text-sm text-muted">Try different filters or clear them to see all entries.</p>
+        </div>
       ) : (
         <ul className="space-y-2">
           {filtered.map((e) => (

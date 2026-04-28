@@ -19,7 +19,13 @@ const statusBg: Record<string, string> = {
 export default function EntryDetailScreen() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const entry = useLiveQuery(() => (id ? db.entries.get(id) : undefined), [id]);
+
+  // null = not found; undefined = still loading
+  const entry = useLiveQuery(async () => {
+    if (!id) return null;
+    return (await db.entries.get(id)) ?? null;
+  }, [id]);
+
   const attachments = useLiveQuery(
     () => (id ? db.attachments.where({ entryId: id }).toArray() : Promise.resolve([] as Attachment[])),
     [id],
@@ -27,7 +33,11 @@ export default function EntryDetailScreen() {
   );
   const dog = useLiveQuery(() => (entry?.dogId ? db.dogs.get(entry.dogId) : undefined), [entry?.dogId]);
 
-  if (!entry) {
+  useEffect(() => {
+    if (entry === null) navigate('/', { replace: true });
+  }, [entry, navigate]);
+
+  if (entry == null) {
     return <div className="p-6 text-muted">Loading…</div>;
   }
   return <Detail entry={entry} dogName={dog?.name} attachments={attachments ?? []} onBack={() => navigate(-1)} />;

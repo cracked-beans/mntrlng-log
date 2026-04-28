@@ -40,6 +40,19 @@ export default function HistoryScreen() {
   const { current, longest } = useMemo(() => streaks(entries), [entries]);
   const km = useMemo(() => totalGpxMeters(attachments), [attachments]);
 
+  if (entries.length === 0) {
+    return (
+      <div className="p-4 space-y-4">
+        <h1 className="text-xl font-semibold">History</h1>
+        <div className="card p-8 text-center space-y-3">
+          <div className="text-4xl">📅</div>
+          <h2 className="font-medium">No trails yet</h2>
+          <p className="text-sm text-muted">Start logging trails to see your history and stats here.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4 space-y-4">
       <h1 className="text-xl font-semibold">History</h1>
