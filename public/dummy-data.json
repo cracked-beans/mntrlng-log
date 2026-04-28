@@ -1,0 +1,1964 @@
+{
+  "format": "mtlog/v1",
+  "exportedAt": 1777382832809,
+  "dogs": [
+    {
+      "id": "0101ABCDEFGHIJKLMNOPQ",
+      "name": "Luna",
+      "breed": "Belgian Malinois",
+      "dob": "2020-07-15",
+      "notes": "Very driven, needs calm starts.",
+      "isDefault": true,
+      "createdAt": 1777382832809
+    },
+    {
+      "id": "0102ABCDEFGHIJKLMNOPQ",
+      "name": "Bolt",
+      "breed": "Labrador Retriever",
+      "dob": "2022-02-03",
+      "notes": "Confident in urban, still learning rural.",
+      "createdAt": 1777382832809
+    }
+  ],
+  "handlers": [
+    {
+      "id": "0103ABCDEFGHIJKLMNOPQ",
+      "name": "Sara",
+      "isDefault": true,
+      "createdAt": 1777382832809
+    },
+    {
+      "id": "0104ABCDEFGHIJKLMNOPQ",
+      "name": "Jordi",
+      "createdAt": 1777382832809
+    }
+  ],
+  "entries": [
+    {
+      "id": "0105ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-28",
+      "time": "11:45",
+      "location": "Riverside Park",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Double blind",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Morning",
+      "area": {
+        "kind": "Urban",
+        "sub": "City Center"
+      },
+      "surface": "Asphalt",
+      "weather": [
+        "Wind"
+      ],
+      "length": "100-200",
+      "runner": "Youth",
+      "scentArticle": [
+        "Bag",
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "line_up",
+          "status": "with_help"
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "not_solved",
+          "comments": "No hesitation at fence."
+        }
+      ],
+      "goal": "Back-track on known route.",
+      "trailComments": "Great focus despite dog traffic.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 4,
+        "bodyPosition": 3,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 5,
+        "negatives": 4,
+        "other": 3
+      },
+      "tags": [
+        "mountain",
+        "blind"
+      ],
+      "createdAt": 1777382832809,
+      "updatedAt": 1777382832809
+    },
+    {
+      "id": "0106ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-26",
+      "time": "06:00",
+      "location": "Farmland Track",
+      "instructor": "Mònica",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Afternoon",
+      "area": {
+        "kind": "Rural",
+        "sub": "Farm"
+      },
+      "surface": "Mixed",
+      "weather": [
+        "Breeze",
+        "100% Cloudy"
+      ],
+      "length": "200-300",
+      "runner": "Elderly",
+      "scentArticle": [
+        "Hard",
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Standing"
+      },
+      "components": [
+        {
+          "key": "change_surface",
+          "status": "with_help",
+          "comments": "Slowed on asphalt → cobble transition."
+        },
+        {
+          "key": "river",
+          "status": "not_solved"
+        }
+      ],
+      "goal": "Competition-simulation run.",
+      "trailComments": "Solid session overall.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 2,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 4,
+        "negatives": 3,
+        "other": 3
+      },
+      "tags": [
+        "fog"
+      ],
+      "createdAt": 1777210032809,
+      "updatedAt": 1777210032809
+    },
+    {
+      "id": "0107ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-24",
+      "time": "06:15",
+      "location": "Quarry Road",
+      "typeOfStart": "Casting",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "12 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Earth",
+      "weather": [
+        "Wind"
+      ],
+      "length": "100-200",
+      "runner": "Child",
+      "scentArticle": [
+        "Soft"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "obstacle_crossing",
+          "status": "not_solved",
+          "comments": "Went around twice then crossed."
+        },
+        {
+          "key": "change_surface",
+          "status": "good"
+        }
+      ],
+      "goal": "Night trail with fog conditions.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 5,
+        "bodyPosition": 2,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 4,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "long-trail",
+        "blind"
+      ],
+      "createdAt": 1777037232809,
+      "updatedAt": 1777037232809
+    },
+    {
+      "id": "0108ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-21",
+      "time": "15:00",
+      "location": "Shopping District",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Midday",
+      "area": {
+        "kind": "Urban",
+        "sub": "City Center"
+      },
+      "surface": "Mixed",
+      "weather": [
+        "Fog",
+        "Light rain"
+      ],
+      "length": "600-800",
+      "runner": "Elderly",
+      "scentArticle": [
+        "Bag"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "walking_id",
+          "status": "with_help"
+        },
+        {
+          "key": "line_up",
+          "status": "good"
+        },
+        {
+          "key": "bridge",
+          "status": "with_help"
+        },
+        {
+          "key": "door_obstacle_id",
+          "status": "with_help",
+          "comments": "Overshot door, looped back."
+        }
+      ],
+      "goal": "Back-track on known route.",
+      "trailComments": "Noisy environment — dog stayed on track.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 4,
+        "leashHandling": 4,
+        "bodyPosition": 5,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 2,
+        "negatives": 3,
+        "other": 2
+      },
+      "tags": [
+        "night-session"
+      ],
+      "createdAt": 1776778032809,
+      "updatedAt": 1776778032809
+    },
+    {
+      "id": "0109ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-19",
+      "time": "14:45",
+      "location": "Harbour District",
+      "typeOfStart": "Casting",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "12 hours",
+      "timeOfDay": "Midday",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Sand",
+      "weather": [
+        "50% Cloudy",
+        "100% Cloudy"
+      ],
+      "length": "100-200",
+      "runner": "Unknown",
+      "scentArticle": [
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "No runner"
+      },
+      "components": [
+        {
+          "key": "weather",
+          "status": "good"
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "not_solved",
+          "comments": "No hesitation at fence."
+        },
+        {
+          "key": "contaminated_scent",
+          "status": "not_solved"
+        },
+        {
+          "key": "split_trail",
+          "status": "not_solved",
+          "comments": "Lost at the Y, recovered with one cast."
+        }
+      ],
+      "goal": "First blind trail at this location.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 3,
+        "bodyPosition": 4,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 3,
+        "negatives": 4,
+        "other": 3
+      },
+      "tags": [
+        "door-id"
+      ],
+      "createdAt": 1776605232809,
+      "updatedAt": 1776605232809
+    },
+    {
+      "id": "0110ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-16",
+      "time": "09:30",
+      "location": "Residential Block B",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Blind end",
+      "ageOfTrail": "12 hours",
+      "timeOfDay": "Evening",
+      "area": {
+        "kind": "Urban",
+        "sub": "Industrial"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Storm",
+        "Fog"
+      ],
+      "length": "200-300",
+      "runner": "Favourite",
+      "scentArticle": [
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "back_track",
+          "status": "with_help",
+          "comments": "Tracked clean both ways."
+        },
+        {
+          "key": "blind_trail",
+          "status": "not_solved",
+          "comments": "Required two restarts."
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "good"
+        }
+      ],
+      "goal": "Improve leash handling under pressure.",
+      "trailComments": "Noisy environment — dog stayed on track.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 4,
+        "bodyPosition": 2,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 4,
+        "negatives": 4,
+        "other": 4
+      },
+      "tags": [
+        "competition-prep"
+      ],
+      "createdAt": 1776346032809,
+      "updatedAt": 1776346032809
+    },
+    {
+      "id": "0111ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-13",
+      "time": "06:00",
+      "location": "Mountain Trailhead",
+      "typeOfStart": "Casting",
+      "trailKnowledge": "Double blind",
+      "ageOfTrail": "12 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Rural",
+        "sub": "Woods"
+      },
+      "surface": "Cement",
+      "weather": [
+        "Sun",
+        "Light rain"
+      ],
+      "length": "400-600",
+      "runner": "Favourite",
+      "scentArticle": [
+        "Contaminated"
+      ],
+      "endPosition": {
+        "visibility": "No runner"
+      },
+      "components": [
+        {
+          "key": "river",
+          "status": "problems"
+        },
+        {
+          "key": "blind_trail",
+          "status": "not_solved",
+          "comments": "Required two restarts."
+        },
+        {
+          "key": "controlled_casting",
+          "status": "good"
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "not_solved",
+          "comments": "No hesitation at fence."
+        }
+      ],
+      "goal": "Back-track on known route.",
+      "trailComments": "Great focus despite dog traffic.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 4,
+        "bodyPosition": 3,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 2,
+        "negatives": 4,
+        "other": 4
+      },
+      "tags": [
+        "split-trail"
+      ],
+      "createdAt": 1776086832809,
+      "updatedAt": 1776086832809
+    },
+    {
+      "id": "0112ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-10",
+      "time": "10:15",
+      "location": "Shopping District",
+      "typeOfStart": "Casting",
+      "trailKnowledge": "Blind end",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Urban",
+        "sub": "City Center"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Light rain"
+      ],
+      "length": "600-800",
+      "runner": "Youth",
+      "scentArticle": [
+        "Big"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "high_find",
+          "status": "problems",
+          "comments": "Slow approach but correct."
+        }
+      ],
+      "goal": "Test high-find in urban setting.",
+      "trailComments": "Needed two restarts due to distraction.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 2,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 4,
+        "negatives": 5,
+        "other": 4
+      },
+      "tags": [
+        "night-session"
+      ],
+      "createdAt": 1775827632809,
+      "updatedAt": 1775827632809
+    },
+    {
+      "id": "0113ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-06",
+      "time": "08:15",
+      "location": "Nature Reserve — East",
+      "instructor": "Jaume",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Blind w help",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Afternoon",
+      "area": {
+        "kind": "Urban",
+        "sub": "Industrial"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Storm"
+      ],
+      "length": "100-200",
+      "runner": "Favourite",
+      "scentArticle": [
+        "Bag"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "change_surface",
+          "status": "not_solved",
+          "comments": "No issue with surface change."
+        },
+        {
+          "key": "river",
+          "status": "not_solved"
+        },
+        {
+          "key": "target",
+          "status": "with_help"
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "good"
+        }
+      ],
+      "goal": "Competition-simulation run.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 4,
+        "bodyPosition": 4,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 3,
+        "negatives": 5,
+        "other": 3
+      },
+      "tags": [
+        "long-trail",
+        "blind"
+      ],
+      "createdAt": 1775482032809,
+      "updatedAt": 1775482032809
+    },
+    {
+      "id": "0114ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-04-02",
+      "time": "06:30",
+      "location": "Industrial Zone",
+      "instructor": "Elena",
+      "typeOfStart": "Flip",
+      "trailKnowledge": "Blind w help",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Afternoon",
+      "area": {
+        "kind": "Urban",
+        "sub": "Residential"
+      },
+      "surface": "Cement",
+      "weather": [
+        "Heavy rain",
+        "Sun"
+      ],
+      "length": "<100",
+      "runner": "Elderly",
+      "scentArticle": [
+        "Small"
+      ],
+      "endPosition": {
+        "visibility": "No runner"
+      },
+      "components": [
+        {
+          "key": "back_track",
+          "status": "problems",
+          "comments": "Confused by loop, handler helped orient."
+        },
+        {
+          "key": "controlled_casting",
+          "status": "problems",
+          "comments": "Wide but systematic cast."
+        },
+        {
+          "key": "target",
+          "status": "not_solved"
+        },
+        {
+          "key": "bridge",
+          "status": "with_help"
+        }
+      ],
+      "goal": "Improve leash handling under pressure.",
+      "trailComments": "Dog performed above expectations.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 5,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 5,
+        "negatives": 5,
+        "other": 5
+      },
+      "tags": [
+        "mountain",
+        "blind"
+      ],
+      "createdAt": 1775136432809,
+      "updatedAt": 1775136432809
+    },
+    {
+      "id": "0115ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2026-03-29",
+      "time": "15:30",
+      "location": "Pine Forest Clearing",
+      "instructor": "Mònica",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Midday",
+      "area": {
+        "kind": "Urban",
+        "sub": "Industrial"
+      },
+      "surface": "Mixed",
+      "weather": [
+        "50% Cloudy"
+      ],
+      "length": "200-300",
+      "runner": "Handicapped",
+      "scentArticle": [
+        "Small"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "controlled_casting",
+          "status": "problems",
+          "comments": "Wide but systematic cast."
+        },
+        {
+          "key": "vpu",
+          "status": "with_help"
+        }
+      ],
+      "goal": "Work on split trail recovery.",
+      "trailComments": "Noisy environment — dog stayed on track.",
+      "observations": "Food distraction near finish — dog ignored.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 5,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 4,
+        "negatives": 5,
+        "other": 2
+      },
+      "tags": [
+        "fog"
+      ],
+      "createdAt": 1774790832809,
+      "updatedAt": 1774790832809
+    },
+    {
+      "id": "0116ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-03-24",
+      "time": "10:15",
+      "location": "University Campus",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Evening",
+      "area": {
+        "kind": "Rural",
+        "sub": "Woods"
+      },
+      "surface": "Asphalt",
+      "weather": [
+        "Storm",
+        "50% Cloudy"
+      ],
+      "length": "600-800",
+      "runner": "Elderly",
+      "scentArticle": [
+        "Bag",
+        "Hard"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "back_track",
+          "status": "not_solved",
+          "comments": "Confused by loop, handler helped orient."
+        },
+        {
+          "key": "high_find",
+          "status": "good"
+        }
+      ],
+      "goal": "Back-track on known route.",
+      "trailComments": "Great focus despite dog traffic.",
+      "handlerEval": {
+        "startingRoutine": 4,
+        "leashHandling": 2,
+        "bodyPosition": 4,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 5,
+        "negatives": 4,
+        "other": 5
+      },
+      "tags": [
+        "mountain"
+      ],
+      "createdAt": 1774358832809,
+      "updatedAt": 1774358832809
+    },
+    {
+      "id": "0117ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-03-17",
+      "time": "20:15",
+      "location": "Old Town Square",
+      "typeOfStart": "Flip",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Rural",
+        "sub": "Meadows"
+      },
+      "surface": "Asphalt",
+      "weather": [
+        "Sun",
+        "Light rain"
+      ],
+      "length": "200-300",
+      "runner": "Child",
+      "scentArticle": [
+        "Hard",
+        "No bag"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "high_find",
+          "status": "good"
+        },
+        {
+          "key": "line_up",
+          "status": "with_help"
+        },
+        {
+          "key": "weather",
+          "status": "with_help"
+        }
+      ],
+      "goal": "Confirm Door ID under distractions.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 5,
+        "bodyPosition": 5,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 2,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "competition-prep"
+      ],
+      "createdAt": 1773754032809,
+      "updatedAt": 1773754032809
+    },
+    {
+      "id": "0118ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-03-09",
+      "time": "09:00",
+      "location": "Riverside Park",
+      "instructor": "Jaume",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "Fresh",
+      "timeOfDay": "Evening",
+      "area": {
+        "kind": "Urban",
+        "sub": "Residential"
+      },
+      "surface": "Mud",
+      "weather": [
+        "Breeze"
+      ],
+      "length": "600-800",
+      "runner": "Child",
+      "scentArticle": [
+        "Small",
+        "Big"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Behind door / obstacle"
+      },
+      "components": [
+        {
+          "key": "split_trail",
+          "status": "with_help",
+          "comments": "Clean split, good commitment."
+        },
+        {
+          "key": "contaminated_scent",
+          "status": "with_help"
+        },
+        {
+          "key": "walking_id",
+          "status": "good"
+        }
+      ],
+      "goal": "First blind trail at this location.",
+      "trailComments": "Heat affected pace in final 200m.",
+      "observations": "Food distraction near finish — dog ignored.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 2,
+        "bodyPosition": 2,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 2,
+        "negatives": 4,
+        "other": 4
+      },
+      "tags": [
+        "cold-trail"
+      ],
+      "createdAt": 1773062832809,
+      "updatedAt": 1773062832809
+    },
+    {
+      "id": "0119ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-03-01",
+      "time": "08:45",
+      "location": "University Campus",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Dawn",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Breeze"
+      ],
+      "length": "400-600",
+      "runner": "Adult",
+      "scentArticle": [
+        "Contaminated"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "door_obstacle_id",
+          "status": "with_help",
+          "comments": "Overshot door, looped back."
+        },
+        {
+          "key": "obstacle_crossing",
+          "status": "with_help",
+          "comments": "No hesitation at fence."
+        },
+        {
+          "key": "high_find",
+          "status": "problems",
+          "comments": "Found independently — great!"
+        },
+        {
+          "key": "walking_id",
+          "status": "with_help"
+        }
+      ],
+      "goal": "Test high-find in urban setting.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Food distraction near finish — dog ignored.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 5,
+        "bodyPosition": 4,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 5,
+        "negatives": 5,
+        "other": 3
+      },
+      "tags": [
+        "split-trail"
+      ],
+      "createdAt": 1772371632809,
+      "updatedAt": 1772371632809
+    },
+    {
+      "id": "0120ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2026-02-22",
+      "time": "18:00",
+      "location": "Industrial Zone",
+      "instructor": "Elena",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Morning",
+      "area": {
+        "kind": "Rural",
+        "sub": "Beach"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Wind"
+      ],
+      "length": "<100",
+      "runner": "Elderly",
+      "scentArticle": [
+        "Big",
+        "Small"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "walking_id",
+          "status": "with_help"
+        }
+      ],
+      "goal": "Work on split trail recovery.",
+      "trailComments": "Noisy environment — dog stayed on track.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 2,
+        "bodyPosition": 3,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 5,
+        "negatives": 4,
+        "other": 4
+      },
+      "tags": [
+        "green-belt"
+      ],
+      "createdAt": 1771766832809,
+      "updatedAt": 1771766832809
+    },
+    {
+      "id": "0121ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-02-14",
+      "time": "08:45",
+      "location": "Old Town Square",
+      "instructor": "Elena",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "12 hours",
+      "timeOfDay": "Afternoon",
+      "area": {
+        "kind": "Rural",
+        "sub": "Woods"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Breeze",
+        "Storm"
+      ],
+      "length": "<100",
+      "runner": "Unknown",
+      "scentArticle": [
+        "Bag",
+        "Hard"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "change_surface",
+          "status": "good"
+        },
+        {
+          "key": "weather",
+          "status": "good"
+        },
+        {
+          "key": "high_find",
+          "status": "not_solved",
+          "comments": "Found independently — great!"
+        },
+        {
+          "key": "blind_trail",
+          "status": "problems",
+          "comments": "Confident from first step."
+        }
+      ],
+      "goal": "First blind trail at this location.",
+      "trailComments": "Needed two restarts due to distraction.",
+      "observations": "Food distraction near finish — dog ignored.",
+      "handlerEval": {
+        "startingRoutine": 4,
+        "leashHandling": 5,
+        "bodyPosition": 3,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 2,
+        "negatives": 2,
+        "other": 4
+      },
+      "tags": [
+        "mountain",
+        "blind"
+      ],
+      "createdAt": 1771075632809,
+      "updatedAt": 1771075632809
+    },
+    {
+      "id": "0122ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-02-05",
+      "time": "08:00",
+      "location": "Industrial Zone",
+      "instructor": "Jaume",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "Fresh",
+      "timeOfDay": "Dawn",
+      "area": {
+        "kind": "Urban",
+        "sub": "Residential"
+      },
+      "surface": "Sand",
+      "weather": [
+        "100% Cloudy",
+        "Storm"
+      ],
+      "length": "400-600",
+      "runner": "Known",
+      "scentArticle": [
+        "Soft",
+        "No bag"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "stop_go",
+          "status": "good"
+        },
+        {
+          "key": "target",
+          "status": "with_help"
+        },
+        {
+          "key": "change_surface",
+          "status": "with_help",
+          "comments": "No issue with surface change."
+        },
+        {
+          "key": "nsi",
+          "status": "problems"
+        }
+      ],
+      "goal": "Work on split trail recovery.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 5,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 4,
+        "negatives": 4,
+        "other": 2
+      },
+      "tags": [
+        "green-belt"
+      ],
+      "createdAt": 1770298032809,
+      "updatedAt": 1770298032809
+    },
+    {
+      "id": "0123ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-01-27",
+      "time": "14:00",
+      "location": "Harbour District",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "Fresh",
+      "timeOfDay": "Dawn",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Snow",
+        "Breeze"
+      ],
+      "length": "200-300",
+      "runner": "Handicapped",
+      "scentArticle": [
+        "Big"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Standing"
+      },
+      "components": [
+        {
+          "key": "back_track",
+          "status": "good"
+        },
+        {
+          "key": "split_trail",
+          "status": "problems",
+          "comments": "Lost at the Y, recovered with one cast."
+        }
+      ],
+      "goal": "Long cold trail with casting start.",
+      "trailComments": "Solid session overall.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 3,
+        "bodyPosition": 5,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 3,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "mountain"
+      ],
+      "createdAt": 1769520432809,
+      "updatedAt": 1769520432809
+    },
+    {
+      "id": "0124ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2026-01-13",
+      "time": "14:30",
+      "location": "Residential Block B",
+      "typeOfStart": "Flip",
+      "trailKnowledge": "Blind start",
+      "ageOfTrail": "25+ hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Mud",
+      "weather": [
+        "Wind"
+      ],
+      "length": ">800",
+      "runner": "Handicapped",
+      "scentArticle": [
+        "Big"
+      ],
+      "endPosition": {
+        "visibility": "No runner"
+      },
+      "components": [
+        {
+          "key": "casting_intersection",
+          "status": "not_solved",
+          "comments": "Clean cast at crossroads."
+        },
+        {
+          "key": "change_surface",
+          "status": "good"
+        }
+      ],
+      "goal": "Test high-find in urban setting.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Food distraction near finish — dog ignored.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 2,
+        "bodyPosition": 2,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 5,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "split-trail"
+      ],
+      "createdAt": 1768310832809,
+      "updatedAt": 1768310832809
+    },
+    {
+      "id": "0125ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2025-12-29",
+      "time": "10:00",
+      "location": "Railway Embankment",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Evening",
+      "area": {
+        "kind": "Mixed"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Light rain",
+        "Sun"
+      ],
+      "length": "400-600",
+      "runner": "Child",
+      "scentArticle": [
+        "Contaminated"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "door_obstacle_id",
+          "status": "problems",
+          "comments": "Perfect ID, sat immediately."
+        },
+        {
+          "key": "blind_trail",
+          "status": "with_help",
+          "comments": "Hesitated 30s before committing."
+        }
+      ],
+      "goal": "Competition-simulation run.",
+      "trailComments": "Solid session overall.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 4,
+        "bodyPosition": 3,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 3,
+        "negatives": 4,
+        "other": 2
+      },
+      "tags": [
+        "green-belt"
+      ],
+      "createdAt": 1767014832809,
+      "updatedAt": 1767014832809
+    },
+    {
+      "id": "0126ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-12-11",
+      "time": "09:45",
+      "location": "Railway Embankment",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Double blind",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Rural",
+        "sub": "Beach"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Wind"
+      ],
+      "length": "200-300",
+      "runner": "Frequent",
+      "scentArticle": [
+        "Small"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "Low"
+      },
+      "components": [
+        {
+          "key": "obstacle_crossing",
+          "status": "not_solved",
+          "comments": "Went around twice then crossed."
+        },
+        {
+          "key": "river",
+          "status": "good"
+        },
+        {
+          "key": "walking_id",
+          "status": "not_solved"
+        }
+      ],
+      "goal": "Back-track on known route.",
+      "trailComments": "Heat affected pace in final 200m.",
+      "observations": "Strong cross-wind in the open field section.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 5,
+        "bodyPosition": 3,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 2,
+        "negatives": 5,
+        "other": 3
+      },
+      "tags": [
+        "mountain"
+      ],
+      "createdAt": 1765459632809,
+      "updatedAt": 1765459632809
+    },
+    {
+      "id": "0127ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-11-24",
+      "time": "18:30",
+      "location": "Harbour District",
+      "instructor": "Elena",
+      "typeOfStart": "Casting",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "25+ hours",
+      "timeOfDay": "Afternoon",
+      "area": {
+        "kind": "Rural",
+        "sub": "Farm"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Sun",
+        "Heavy rain"
+      ],
+      "length": "600-800",
+      "runner": "Youth",
+      "scentArticle": [
+        "Small",
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "walking_id",
+          "status": "with_help"
+        },
+        {
+          "key": "nsi",
+          "status": "not_solved"
+        },
+        {
+          "key": "blind_trail",
+          "status": "not_solved",
+          "comments": "Required two restarts."
+        },
+        {
+          "key": "target",
+          "status": "with_help"
+        }
+      ],
+      "goal": "First blind trail at this location.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 4,
+        "bodyPosition": 5,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 4,
+        "confidence": 4,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "urban",
+        "competition-prep"
+      ],
+      "createdAt": 1763990832809,
+      "updatedAt": 1763990832809
+    },
+    {
+      "id": "0128ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-11-07",
+      "time": "09:15",
+      "location": "Harbour District",
+      "instructor": "Mònica",
+      "typeOfStart": "Delayed Start",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Rural",
+        "sub": "Woods"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Sun"
+      ],
+      "length": "600-800",
+      "runner": "Child",
+      "scentArticle": [
+        "Bag"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "low_find",
+          "status": "good"
+        },
+        {
+          "key": "river",
+          "status": "good"
+        },
+        {
+          "key": "walking_id",
+          "status": "good"
+        }
+      ],
+      "goal": "Work on split trail recovery.",
+      "trailComments": "Solid session overall.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 5,
+        "bodyPosition": 4,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 3,
+        "negatives": 3,
+        "other": 2
+      },
+      "tags": [
+        "refresh"
+      ],
+      "createdAt": 1762522032809,
+      "updatedAt": 1762522032809
+    },
+    {
+      "id": "0129ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-10-20",
+      "time": "15:00",
+      "location": "Residential Block B",
+      "instructor": "Elena",
+      "typeOfStart": "Delayed Start",
+      "trailKnowledge": "Double blind",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Evening",
+      "area": {
+        "kind": "Urban",
+        "sub": "Shopping"
+      },
+      "surface": "Gravel",
+      "weather": [
+        "Wind"
+      ],
+      "length": "<100",
+      "runner": "Unknown",
+      "scentArticle": [
+        "Bag",
+        "Big"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "target",
+          "status": "with_help"
+        },
+        {
+          "key": "high_find",
+          "status": "problems",
+          "comments": "Slow approach but correct."
+        },
+        {
+          "key": "river",
+          "status": "problems"
+        },
+        {
+          "key": "split_trail",
+          "status": "good"
+        }
+      ],
+      "goal": "Surface change: asphalt → cobble.",
+      "trailComments": "Solid session overall.",
+      "handlerEval": {
+        "startingRoutine": 4,
+        "leashHandling": 4,
+        "bodyPosition": 2,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 5,
+        "negatives": 5,
+        "other": 3
+      },
+      "tags": [],
+      "createdAt": 1760966832809,
+      "updatedAt": 1760966832809
+    },
+    {
+      "id": "0130ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0104ABCDEFGHIJKLMNOPQ",
+      "date": "2025-09-25",
+      "time": "07:45",
+      "location": "Harbour District",
+      "typeOfStart": "Scent Article",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Morning",
+      "area": {
+        "kind": "Urban",
+        "sub": "Industrial"
+      },
+      "surface": "Asphalt",
+      "weather": [
+        "Fog"
+      ],
+      "length": "600-800",
+      "runner": "Known",
+      "scentArticle": [
+        "Contaminated",
+        "No bag"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Standing"
+      },
+      "components": [
+        {
+          "key": "split_trail",
+          "status": "not_solved",
+          "comments": "Lost at the Y, recovered with one cast."
+        },
+        {
+          "key": "change_surface",
+          "status": "good"
+        }
+      ],
+      "goal": "Surface change: asphalt → cobble.",
+      "trailComments": "Heat affected pace in final 200m.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 5,
+        "bodyPosition": 5,
+        "readingTheDog": 4
+      },
+      "dogEval": {
+        "motivation": 3,
+        "confidence": 3,
+        "negatives": 5,
+        "other": 2
+      },
+      "tags": [
+        "urban",
+        "competition-prep"
+      ],
+      "createdAt": 1758806832809,
+      "updatedAt": 1758806832809
+    },
+    {
+      "id": "0131ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-08-31",
+      "time": "08:00",
+      "location": "University Campus",
+      "instructor": "Jaume",
+      "typeOfStart": "Intensity",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "6 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Urban",
+        "sub": "Residential"
+      },
+      "surface": "Grass",
+      "weather": [
+        "Wind",
+        "Breeze"
+      ],
+      "length": ">800",
+      "runner": "Adult",
+      "scentArticle": [
+        "Small",
+        "Hard"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "vpu",
+          "status": "not_solved"
+        }
+      ],
+      "goal": "Test high-find in urban setting.",
+      "trailComments": "Great focus despite dog traffic.",
+      "handlerEval": {
+        "startingRoutine": 4,
+        "leashHandling": 5,
+        "bodyPosition": 3,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 5,
+        "confidence": 5,
+        "negatives": 4,
+        "other": 4
+      },
+      "tags": [
+        "urban"
+      ],
+      "createdAt": 1756646832809,
+      "updatedAt": 1756646832809
+    },
+    {
+      "id": "0132ABCDEFGHIJKLMNOPQ",
+      "dogId": "0102ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-08-01",
+      "time": "07:30",
+      "location": "Harbour District",
+      "instructor": "Elena",
+      "typeOfStart": "Delayed Start",
+      "trailKnowledge": "100% Blind",
+      "ageOfTrail": "24 hours",
+      "timeOfDay": "Midday",
+      "area": {
+        "kind": "Urban",
+        "sub": "Industrial"
+      },
+      "surface": "Sand",
+      "weather": [
+        "Heavy rain",
+        "Light rain"
+      ],
+      "length": "100-200",
+      "runner": "Handicapped",
+      "scentArticle": [
+        "Soft",
+        "Small"
+      ],
+      "endPosition": {
+        "visibility": "Hidden",
+        "sub": "High"
+      },
+      "components": [
+        {
+          "key": "door_obstacle_id",
+          "status": "with_help",
+          "comments": "Overshot door, looped back."
+        },
+        {
+          "key": "weather",
+          "status": "good"
+        }
+      ],
+      "goal": "Work on split trail recovery.",
+      "trailComments": "Needed two restarts due to distraction.",
+      "handlerEval": {
+        "startingRoutine": 3,
+        "leashHandling": 3,
+        "bodyPosition": 5,
+        "readingTheDog": 2
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 4,
+        "negatives": 4,
+        "other": 3
+      },
+      "tags": [
+        "rain"
+      ],
+      "createdAt": 1754054832809,
+      "updatedAt": 1754054832809
+    },
+    {
+      "id": "0133ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-06-22",
+      "time": "15:30",
+      "location": "Railway Embankment",
+      "instructor": "Elena",
+      "typeOfStart": "Delayed Start",
+      "trailKnowledge": "Blind w help",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Night",
+      "area": {
+        "kind": "Urban",
+        "sub": "Residential"
+      },
+      "surface": "Mud",
+      "weather": [
+        "Wind"
+      ],
+      "length": "100-200",
+      "runner": "Unknown",
+      "scentArticle": [
+        "Target"
+      ],
+      "endPosition": {
+        "visibility": "On sight",
+        "sub": "Sitting"
+      },
+      "components": [
+        {
+          "key": "high_find",
+          "status": "with_help",
+          "comments": "Found independently — great!"
+        },
+        {
+          "key": "blind_trail",
+          "status": "not_solved",
+          "comments": "Hesitated 30s before committing."
+        },
+        {
+          "key": "contaminated_scent",
+          "status": "not_solved"
+        }
+      ],
+      "goal": "Surface change: asphalt → cobble.",
+      "trailComments": "Dog performed above expectations.",
+      "observations": "Two cyclists passed near leg 2.",
+      "handlerEval": {
+        "startingRoutine": 5,
+        "leashHandling": 5,
+        "bodyPosition": 3,
+        "readingTheDog": 3
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 4,
+        "negatives": 3,
+        "other": 5
+      },
+      "tags": [
+        "urban",
+        "competition-prep"
+      ],
+      "createdAt": 1750598832809,
+      "updatedAt": 1750598832809
+    },
+    {
+      "id": "0134ABCDEFGHIJKLMNOPQ",
+      "dogId": "0101ABCDEFGHIJKLMNOPQ",
+      "handlerId": "0103ABCDEFGHIJKLMNOPQ",
+      "date": "2025-05-08",
+      "time": "07:30",
+      "location": "Old Town Square",
+      "typeOfStart": "Delayed Start",
+      "trailKnowledge": "Known",
+      "ageOfTrail": "3 hours",
+      "timeOfDay": "Dawn",
+      "area": {
+        "kind": "Rural",
+        "sub": "Farm"
+      },
+      "surface": "Cement",
+      "weather": [
+        "Breeze"
+      ],
+      "length": "400-600",
+      "runner": "Youth",
+      "scentArticle": [
+        "Hard"
+      ],
+      "endPosition": {
+        "visibility": "No runner"
+      },
+      "components": [
+        {
+          "key": "split_trail",
+          "status": "with_help",
+          "comments": "Clean split, good commitment."
+        },
+        {
+          "key": "blind_trail",
+          "status": "not_solved",
+          "comments": "Hesitated 30s before committing."
+        }
+      ],
+      "goal": "Competition-simulation run.",
+      "trailComments": "Great focus despite dog traffic.",
+      "handlerEval": {
+        "startingRoutine": 2,
+        "leashHandling": 5,
+        "bodyPosition": 3,
+        "readingTheDog": 5
+      },
+      "dogEval": {
+        "motivation": 2,
+        "confidence": 4,
+        "negatives": 2,
+        "other": 2
+      },
+      "tags": [
+        "split-trail"
+      ],
+      "createdAt": 1746710832809,
+      "updatedAt": 1746710832809
+    }
+  ],
+  "attachments": []
+}
