@@ -86,6 +86,34 @@ export function monthlyCounts(entries: Entry[]): Array<{ month: string; count: n
   return labels.map((m) => ({ month: m, count: counts[m] }));
 }
 
+export type MonthlyByType = {
+  month: string;
+  Intensity: number;
+  'Delayed Start': number;
+  'Scent Article': number;
+  Casting: number;
+  Flip: number;
+};
+
+/** Count entries per month by typeOfStart, last 12 months including current, in chronological order. */
+export function monthlyCountsByType(entries: Entry[]): MonthlyByType[] {
+  const now = new Date();
+  const labels: string[] = [];
+  for (let i = 11; i >= 0; i--) {
+    const d = startOfMonth(new Date(now.getFullYear(), now.getMonth() - i, 1));
+    labels.push(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`);
+  }
+  const zero = () => ({ Intensity: 0, 'Delayed Start': 0, 'Scent Article': 0, Casting: 0, Flip: 0 });
+  const counts: Record<string, ReturnType<typeof zero>> = Object.fromEntries(labels.map((l) => [l, zero()]));
+  for (const e of entries) {
+    const k = e.date.slice(0, 7);
+    if (k in counts && e.typeOfStart && e.typeOfStart in counts[k]) {
+      (counts[k] as Record<string, number>)[e.typeOfStart] += 1;
+    }
+  }
+  return labels.map((m) => ({ month: m, ...counts[m] }));
+}
+
 export interface MixSlice { name: string; value: number }
 export function variableMix(entries: Entry[], pick: (e: Entry) => string | undefined): MixSlice[] {
   const m = new Map<string, number>();
@@ -97,17 +125,48 @@ export function variableMix(entries: Entry[], pick: (e: Entry) => string | undef
   return [...m.entries()].map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
 }
 
-export interface RatingPoint { date: string; handler?: number; dog?: number }
+export const RATING_MEASURES = [
+  { key: 'handler',         label: 'Handler avg',      group: 'handler' },
+  { key: 'dog',             label: 'Dog avg',           group: 'dog'     },
+  { key: 'startingRoutine', label: 'Starting routine',  group: 'handler' },
+  { key: 'leashHandling',   label: 'Leash handling',    group: 'handler' },
+  { key: 'bodyPosition',    label: 'Body position',     group: 'handler' },
+  { key: 'readingTheDog',   label: 'Reading the dog',   group: 'handler' },
+  { key: 'motivation',      label: 'Motivation',        group: 'dog'     },
+  { key: 'confidence',      label: 'Confidence',        group: 'dog'     },
+  { key: 'negatives',       label: 'Negatives',         group: 'dog'     },
+  { key: 'other',           label: 'Other',             group: 'dog'     },
+] as const;
+export type RatingMeasureKey = typeof RATING_MEASURES[number]['key'];
+
+export interface RatingPoint {
+  date: string;
+  handler?: number; dog?: number;
+  startingRoutine?: number; leashHandling?: number; bodyPosition?: number; readingTheDog?: number;
+  motivation?: number; confidence?: number; negatives?: number; other?: number;
+}
 export function ratingsTrend(entries: Entry[], days = 90): RatingPoint[] {
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - days);
-  const cutoffISO = cutoff.toISOString().slice(0, 10);
+  const cutoffISO = isFinite(days)
+    ? (() => { const d = new Date(); d.setDate(d.getDate() - days); return d.toISOString().slice(0, 10); })()
+    : '0000-00-00';
   return entries
     .filter((e) => e.date >= cutoffISO)
     .map((e) => {
       const handler = avg([e.handlerEval?.startingRoutine, e.handlerEval?.leashHandling, e.handlerEval?.bodyPosition, e.handlerEval?.readingTheDog]);
       const dog = avg([e.dogEval?.motivation, e.dogEval?.confidence, e.dogEval?.negatives, e.dogEval?.other]);
-      return { date: e.date, handler, dog };
+      return {
+        date: e.date,
+        handler,
+        dog,
+        startingRoutine: e.handlerEval?.startingRoutine,
+        leashHandling: e.handlerEval?.leashHandling,
+        bodyPosition: e.handlerEval?.bodyPosition,
+        readingTheDog: e.handlerEval?.readingTheDog,
+        motivation: e.dogEval?.motivation,
+        confidence: e.dogEval?.confidence,
+        negatives: e.dogEval?.negatives,
+        other: e.dogEval?.other,
+      };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
 }
