@@ -39,7 +39,7 @@ body {
 h2 {
   font-size: 6pt; font-weight: 700; text-transform: uppercase;
   letter-spacing: .08em; background: #111; color: #fff;
-  padding: 0.7mm 2mm; margin: 2mm 0 1.2mm;
+  padding: 0.5mm 2mm; margin: 1.2mm 0 0.8mm;
 }
 h2.light {
   background: none; color: #111; border-bottom: 0.8pt solid #111;
@@ -48,9 +48,9 @@ h2.light {
 
 /* ── Sub-labels ── */
 .slbl {
-  font-size: 5.8pt; font-weight: 700; text-transform: uppercase;
+  font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
   letter-spacing: .05em; color: #555; display: block;
-  margin-bottom: 0.5mm; margin-top: 0.8mm;
+  margin-bottom: 0.3mm; margin-top: 0.5mm;
 }
 .slbl:first-child { margin-top: 0; }
 .flbl {
@@ -64,27 +64,28 @@ h2.light {
 .noteline { border: none; border-bottom: 0.5pt solid #bbb; width: 100%; height: 4.5mm; display: block; margin-bottom: 1.2mm; }
 
 /* ── Layout ── */
-.row  { display: flex; gap: 2.5mm; margin-bottom: 1.2mm; align-items: flex-end; }
+.row  { display: flex; gap: 2mm; margin-bottom: 0.8mm; align-items: flex-end; }
 .col  { flex: 1; }
 .col2 { flex: 2; }
 .col3 { flex: 3; }
-.two  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3mm; }
-.three{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 2.5mm; }
+.two  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5mm; }
+.three{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 2mm; }
 
 /* ── Checkboxes ── */
-.cg { display: flex; flex-wrap: wrap; gap: 0.6mm 2.2mm; }
-.cg.col { flex-direction: column; gap: 0.5mm; }
+.cg { display: flex; flex-wrap: wrap; gap: 0.5mm 2mm; }
+.cg.col { flex-direction: column; gap: 0.4mm; }
+.cg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4mm 1mm; }
 .ck {
-  display: inline-flex; align-items: center; gap: 1mm;
-  font-size: 6.8pt; color: #111; white-space: nowrap; line-height: 1;
+  display: inline-flex; align-items: center; gap: 0.8mm;
+  font-size: 6.2pt; color: #111; white-space: nowrap; line-height: 1;
 }
 .ck::before {
   content: '';
   display: inline-block;
-  width: 2.8mm; height: 2.8mm;
+  width: 2.4mm; height: 2.4mm;
   border: 0.5pt solid #555;
   flex-shrink: 0;
-  border-radius: 0.3mm;
+  border-radius: 0.2mm;
 }
 
 /* ── Components table ── */
@@ -102,13 +103,13 @@ h2.light {
 }
 .ct th:first-child { text-align: left; padding-left: 1mm; }
 .ct td {
-  border: 0.3pt solid #ddd; padding: 0.45mm 0.8mm;
-  font-size: 6.3pt; vertical-align: middle; line-height: 1.15;
+  border: 0.3pt solid #ddd; padding: 0.3mm 0.6mm;
+  font-size: 6pt; vertical-align: middle; line-height: 1.1;
 }
-.ct td.c { text-align: center; padding: 0.45mm 0.3mm; }
+.ct td.c { text-align: center; padding: 0.3mm 0.2mm; }
 .ct tr:nth-child(even) td { background: #f5f5f5; }
 .sq {
-  width: 2.6mm; height: 2.6mm; border: 0.4pt solid #666;
+  width: 2.3mm; height: 2.3mm; border: 0.4pt solid #666;
   display: inline-block; border-radius: 0.2mm;
 }
 
@@ -181,39 +182,39 @@ h2.light {
   <div class="three">
     <div>
       <span class="slbl">Type of Start</span>
-      <div class="cg col">
+      <div class="cg2">
         <span class="ck">Intensity</span>
-        <span class="ck">Delayed Start</span>
-        <span class="ck">Scent Article</span>
+        <span class="ck">Delayed</span>
+        <span class="ck">Scent Art.</span>
         <span class="ck">Casting</span>
         <span class="ck">Flip</span>
       </div>
     </div>
     <div>
       <span class="slbl">Trail Knowledge</span>
-      <div class="cg col">
+      <div class="cg2">
         <span class="ck">Known</span>
         <span class="ck">Blind start</span>
         <span class="ck">Blind end</span>
         <span class="ck">100% Blind</span>
-        <span class="ck">Blind w/ help</span>
-        <span class="ck">Double blind</span>
+        <span class="ck">w/ help</span>
+        <span class="ck">Dbl. blind</span>
       </div>
     </div>
     <div>
       <span class="slbl">Age of Trail</span>
-      <div class="cg col">
+      <div class="cg2">
         <span class="ck">Fresh</span>
-        <span class="ck">3 hours</span>
-        <span class="ck">6 hours</span>
-        <span class="ck">12 hours</span>
-        <span class="ck">24 hours</span>
-        <span class="ck">25+ hours</span>
+        <span class="ck">3 h</span>
+        <span class="ck">6 h</span>
+        <span class="ck">12 h</span>
+        <span class="ck">24 h</span>
+        <span class="ck">25+ h</span>
       </div>
     </div>
   </div>
 
-  <div class="two" style="margin-top:1.5mm">
+  <div class="two" style="margin-top:0.8mm">
     <div>
       <span class="slbl">Time of Day</span>
       <div class="cg"><span class="ck">Dawn</span><span class="ck">Morning</span><span class="ck">Midday</span><span class="ck">Afternoon</span><span class="ck">Evening</span><span class="ck">Night</span></div>
@@ -224,16 +225,17 @@ h2.light {
     </div>
     <div>
       <span class="slbl">Weather (multi)</span>
-      <div class="cg col">
-        <span class="ck">Sun</span><span class="ck">50% Cloudy</span><span class="ck">100% Cloudy</span>
-        <span class="ck">Light rain</span><span class="ck">Heavy rain</span>
-        <span class="ck">Breeze</span><span class="ck">Wind</span>
-        <span class="ck">Storm</span><span class="ck">Fog</span><span class="ck">Snow</span>
+      <div class="cg2">
+        <span class="ck">Sun</span><span class="ck">50% Cloud</span>
+        <span class="ck">Overcast</span><span class="ck">Lt. rain</span>
+        <span class="ck">Hvy rain</span><span class="ck">Breeze</span>
+        <span class="ck">Wind</span><span class="ck">Storm</span>
+        <span class="ck">Fog</span><span class="ck">Snow</span>
       </div>
     </div>
   </div>
 
-  <div class="row" style="margin-top:1.5mm">
+  <div class="row" style="margin-top:0.8mm">
     <div class="col">
       <span class="slbl">Area</span>
       <div class="cg"><span class="ck">Rural</span><span class="ck">Urban</span><span class="ck">Mixed</span></div>
@@ -246,34 +248,35 @@ h2.light {
   <div class="three">
     <div>
       <span class="slbl">Runner</span>
-      <div class="cg col">
-        <span class="ck">Unknown</span><span class="ck">Known</span><span class="ck">Frequent</span>
-        <span class="ck">Favourite</span><span class="ck">Child</span><span class="ck">Youth</span>
-        <span class="ck">Adult</span><span class="ck">Elderly</span><span class="ck">Handicapped</span>
+      <div class="cg2">
+        <span class="ck">Unknown</span><span class="ck">Known</span>
+        <span class="ck">Frequent</span><span class="ck">Favourite</span>
+        <span class="ck">Child</span><span class="ck">Youth</span>
+        <span class="ck">Adult</span><span class="ck">Elderly</span>
+        <span class="ck">Handicapped</span>
       </div>
     </div>
     <div>
       <span class="slbl">Scent Article</span>
-      <div class="cg col">
-        <span class="ck">Soft</span><span class="ck">Hard</span><span class="ck">Big</span>
-        <span class="ck">Small</span><span class="ck">Target</span>
-        <span class="ck">Contaminated</span>
+      <div class="cg2">
+        <span class="ck">Soft</span><span class="ck">Hard</span>
+        <span class="ck">Big</span><span class="ck">Small</span>
+        <span class="ck">Target</span><span class="ck">Contam.</span>
         <span class="ck">Bag</span><span class="ck">No bag</span>
       </div>
     </div>
     <div>
       <span class="slbl">End Position</span>
-      <div style="font-size:5.5pt;color:#777;margin-bottom:0.4mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">On sight</div>
-      <div class="cg col" style="margin-bottom:1mm">
+      <div style="font-size:5pt;color:#777;margin-bottom:0.3mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">On sight</div>
+      <div class="cg2" style="margin-bottom:0.5mm">
         <span class="ck">Sitting</span><span class="ck">Standing</span>
         <span class="ck">Crouching</span><span class="ck">Walking</span>
         <span class="ck">Lying</span>
       </div>
-      <div style="font-size:5.5pt;color:#777;margin-bottom:0.4mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">Hidden / Other</div>
-      <div class="cg col">
+      <div style="font-size:5pt;color:#777;margin-bottom:0.3mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">Hidden / Other</div>
+      <div class="cg2">
         <span class="ck">High</span><span class="ck">Low</span>
-        <span class="ck">Behind obstacle</span>
-        <span class="ck">Lying covered</span>
+        <span class="ck">Behind obst.</span><span class="ck">Covered</span>
         <span class="ck">No runner</span>
       </div>
     </div>
