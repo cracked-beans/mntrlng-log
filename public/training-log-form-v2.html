@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mantrailing Training Log v2</title>
+<style>
+@page { size: A5 portrait; margin: 7mm 8mm 7mm 8mm; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7pt;
+  color: #111;
+  background: #fff;
+  width: 132mm;
+}
+
+/* ── Page breaks ── */
+.page { page-break-after: always; }
+.page:last-child { page-break-after: avoid; }
+
+/* ── Header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1.5pt solid #111;
+  padding-bottom: 1.5mm;
+  margin-bottom: 2mm;
+}
+.header h1 { font-size: 10.5pt; font-weight: 700; letter-spacing: .02em; }
+.header-right { text-align: right; font-size: 6pt; color: #555; line-height: 1.6; }
+.date-box {
+  display: flex; gap: 1mm; align-items: center;
+  font-size: 8.5pt; font-weight: 700; letter-spacing: .1em;
+}
+.date-box span { font-size: 6pt; font-weight: 400; color: #888; }
+
+/* ── Section headers ── */
+h2 {
+  font-size: 6pt; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; background: #111; color: #fff;
+  padding: 0.7mm 2mm; margin: 2mm 0 1.2mm;
+}
+h2.light {
+  background: none; color: #111; border-bottom: 0.8pt solid #111;
+  padding: 0 0 0.5mm; letter-spacing: .06em;
+}
+
+/* ── Sub-labels ── */
+.slbl {
+  font-size: 5.8pt; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; color: #555; display: block;
+  margin-bottom: 0.5mm; margin-top: 0.8mm;
+}
+.slbl:first-child { margin-top: 0; }
+.flbl {
+  font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: #777; display: block; margin-bottom: 0.3mm;
+}
+
+/* ── Write lines ── */
+.line  { border: none; border-bottom: 0.5pt solid #aaa; width: 100%; height: 4mm; display: block; }
+.line2 { border: none; border-bottom: 0.5pt solid #aaa; width: 100%; height: 4mm; display: block; margin-bottom: 1.5mm; }
+.noteline { border: none; border-bottom: 0.5pt solid #bbb; width: 100%; height: 4.5mm; display: block; margin-bottom: 1.2mm; }
+
+/* ── Layout ── */
+.row  { display: flex; gap: 2.5mm; margin-bottom: 1.2mm; align-items: flex-end; }
+.col  { flex: 1; }
+.col2 { flex: 2; }
+.col3 { flex: 3; }
+.two  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3mm; }
+.three{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 2.5mm; }
+
+/* ── Checkboxes ── */
+.cg { display: flex; flex-wrap: wrap; gap: 0.6mm 2.2mm; }
+.cg.col { flex-direction: column; gap: 0.5mm; }
+.ck {
+  display: inline-flex; align-items: center; gap: 1mm;
+  font-size: 6.8pt; color: #111; white-space: nowrap; line-height: 1;
+}
+.ck::before {
+  content: '';
+  display: inline-block;
+  width: 2.8mm; height: 2.8mm;
+  border: 0.5pt solid #555;
+  flex-shrink: 0;
+  border-radius: 0.3mm;
+}
+
+/* ── Components table ── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2mm;
+  margin-bottom: 0.5mm;
+}
+.ct { width: 100%; border-collapse: collapse; }
+.ct th {
+  font-size: 5.2pt; font-weight: 700; text-transform: uppercase;
+  background: #e8e8e8; border: 0.3pt solid #bbb;
+  padding: 0.5mm 0.8mm; text-align: center; white-space: nowrap;
+}
+.ct th:first-child { text-align: left; padding-left: 1mm; }
+.ct td {
+  border: 0.3pt solid #ddd; padding: 0.45mm 0.8mm;
+  font-size: 6.3pt; vertical-align: middle; line-height: 1.15;
+}
+.ct td.c { text-align: center; padding: 0.45mm 0.3mm; }
+.ct tr:nth-child(even) td { background: #f5f5f5; }
+.sq {
+  width: 2.6mm; height: 2.6mm; border: 0.4pt solid #666;
+  display: inline-block; border-radius: 0.2mm;
+}
+
+/* ── Rating circles ── */
+.r-blk { margin-bottom: 0.8mm; }
+.r-row { display: flex; align-items: center; margin-bottom: 0.7mm; }
+.r-lbl { font-size: 6.5pt; flex: 1; line-height: 1; }
+.dots  { display: flex; gap: 1mm; }
+.dots b {
+  width: 4.2mm; height: 4.2mm; border: 0.5pt solid #666;
+  border-radius: 50%; font-size: 5.2pt; font-weight: 400;
+  display: flex; align-items: center; justify-content: center; color: #888;
+}
+
+/* ── Sketch box ── */
+.sketch {
+  border: 0.5pt solid #bbb;
+  width: 100%; height: 22mm;
+  border-radius: 0.8mm;
+  display: flex; align-items: center; justify-content: center;
+  color: #ccc; font-size: 6pt; letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+/* ── Footer ── */
+.footer {
+  font-size: 5pt; color: #bbb; text-align: center;
+  border-top: 0.3pt solid #e8e8e8; padding-top: 0.8mm; margin-top: 1.5mm;
+  display: flex; justify-content: space-between;
+}
+
+/* ── Screen preview ── */
+@media screen {
+  html { background: #888; padding: 15px 0; }
+  body { background: #fff; margin: 0 auto 20px; padding: 7mm 8mm;
+         box-shadow: 0 3px 12px rgba(0,0,0,.35); }
+  .page { border-bottom: 1pt dashed #ccc; padding-bottom: 7mm; margin-bottom: 7mm; }
+  .page:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ████████████████████  PAGE 1  ████████████████████ -->
+<div class="page">
+
+  <div class="header">
+    <h1>🐾 Mantrailing Log</h1>
+    <div class="header-right">
+      <div class="date-box">
+        _ _ <span>/</span> _ _ <span>/</span> _ _ _ _
+      </div>
+      <div style="margin-top:0.5mm">pg 1 of 2</div>
+    </div>
+  </div>
+
+  <!-- BASICS -->
+  <div class="row">
+    <div class="col2"><span class="flbl">Dog</span><div class="line"></div></div>
+    <div class="col2"><span class="flbl">Handler</span><div class="line"></div></div>
+    <div class="col"><span class="flbl">Time</span><div class="line"></div></div>
+  </div>
+  <div class="row">
+    <div class="col3"><span class="flbl">Location</span><div class="line"></div></div>
+    <div class="col2"><span class="flbl">Instructor</span><div class="line"></div></div>
+  </div>
+
+  <!-- TRAIL SETUP -->
+  <h2>Trail Setup</h2>
+  <div class="three">
+    <div>
+      <span class="slbl">Type of Start</span>
+      <div class="cg col">
+        <span class="ck">Intensity</span>
+        <span class="ck">Delayed Start</span>
+        <span class="ck">Scent Article</span>
+        <span class="ck">Casting</span>
+        <span class="ck">Flip</span>
+      </div>
+    </div>
+    <div>
+      <span class="slbl">Trail Knowledge</span>
+      <div class="cg col">
+        <span class="ck">Known</span>
+        <span class="ck">Blind start</span>
+        <span class="ck">Blind end</span>
+        <span class="ck">100% Blind</span>
+        <span class="ck">Blind w/ help</span>
+        <span class="ck">Double blind</span>
+      </div>
+    </div>
+    <div>
+      <span class="slbl">Age of Trail</span>
+      <div class="cg col">
+        <span class="ck">Fresh</span>
+        <span class="ck">3 hours</span>
+        <span class="ck">6 hours</span>
+        <span class="ck">12 hours</span>
+        <span class="ck">24 hours</span>
+        <span class="ck">25+ hours</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:1.5mm">
+    <div>
+      <span class="slbl">Time of Day</span>
+      <div class="cg"><span class="ck">Dawn</span><span class="ck">Morning</span><span class="ck">Midday</span><span class="ck">Afternoon</span><span class="ck">Evening</span><span class="ck">Night</span></div>
+      <span class="slbl">Trail Length</span>
+      <div class="cg"><span class="ck">&lt;100m</span><span class="ck">100–200</span><span class="ck">200–300</span><span class="ck">400–600</span><span class="ck">600–800</span><span class="ck">&gt;800m</span></div>
+      <span class="slbl">Surface</span>
+      <div class="cg"><span class="ck">Asphalt</span><span class="ck">Cement</span><span class="ck">Earth</span><span class="ck">Grass</span><span class="ck">Gravel</span><span class="ck">Mud</span><span class="ck">Sand</span><span class="ck">Mixed</span></div>
+    </div>
+    <div>
+      <span class="slbl">Weather (multi)</span>
+      <div class="cg col">
+        <span class="ck">Sun</span><span class="ck">50% Cloudy</span><span class="ck">100% Cloudy</span>
+        <span class="ck">Light rain</span><span class="ck">Heavy rain</span>
+        <span class="ck">Breeze</span><span class="ck">Wind</span>
+        <span class="ck">Storm</span><span class="ck">Fog</span><span class="ck">Snow</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:1.5mm">
+    <div class="col">
+      <span class="slbl">Area</span>
+      <div class="cg"><span class="ck">Rural</span><span class="ck">Urban</span><span class="ck">Mixed</span></div>
+    </div>
+    <div class="col3"><span class="flbl">Sub-area (e.g. Woods, Residential…)</span><div class="line"></div></div>
+  </div>
+
+  <!-- RUNNER & SCENT -->
+  <h2>Runner &amp; Scent</h2>
+  <div class="three">
+    <div>
+      <span class="slbl">Runner</span>
+      <div class="cg col">
+        <span class="ck">Unknown</span><span class="ck">Known</span><span class="ck">Frequent</span>
+        <span class="ck">Favourite</span><span class="ck">Child</span><span class="ck">Youth</span>
+        <span class="ck">Adult</span><span class="ck">Elderly</span><span class="ck">Handicapped</span>
+      </div>
+    </div>
+    <div>
+      <span class="slbl">Scent Article</span>
+      <div class="cg col">
+        <span class="ck">Soft</span><span class="ck">Hard</span><span class="ck">Big</span>
+        <span class="ck">Small</span><span class="ck">Target</span>
+        <span class="ck">Contaminated</span>
+        <span class="ck">Bag</span><span class="ck">No bag</span>
+      </div>
+    </div>
+    <div>
+      <span class="slbl">End Position</span>
+      <div style="font-size:5.5pt;color:#777;margin-bottom:0.4mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">On sight</div>
+      <div class="cg col" style="margin-bottom:1mm">
+        <span class="ck">Sitting</span><span class="ck">Standing</span>
+        <span class="ck">Crouching</span><span class="ck">Walking</span>
+        <span class="ck">Lying</span>
+      </div>
+      <div style="font-size:5.5pt;color:#777;margin-bottom:0.4mm;font-weight:700;text-transform:uppercase;letter-spacing:.03em">Hidden / Other</div>
+      <div class="cg col">
+        <span class="ck">High</span><span class="ck">Low</span>
+        <span class="ck">Behind obstacle</span>
+        <span class="ck">Lying covered</span>
+        <span class="ck">No runner</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <h2>Components &nbsp;<span style="font-size:5pt;font-weight:400;letter-spacing:0;text-transform:none">✓ trained &nbsp;·&nbsp; G Good &nbsp;·&nbsp; P Problems &nbsp;·&nbsp; H With Help &nbsp;·&nbsp; X Not Solved</span></h2>
+  <div class="comp-grid">
+    <table class="ct">
+      <thead><tr><th>Component</th><th>✓</th><th>G</th><th>P</th><th>H</th><th>X</th></tr></thead>
+      <tbody>
+        <tr><td>🎯 Target</td>          <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>☁️ Weather</td>         <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🚪 Door / Obs. ID</td>  <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🍴 Split Trail</td>     <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🪜 Obstacle Cross.</td> <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>⬆️ High Find</td>       <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>⬇️ Low Find</td>        <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>↩️ Back Track</td>      <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🛑 Stop / Go</td>       <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🛣️ Change Surface</td>  <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      </tbody>
+    </table>
+    <table class="ct">
+      <thead><tr><th>Component</th><th>✓</th><th>G</th><th>P</th><th>H</th><th>X</th></tr></thead>
+      <tbody>
+        <tr><td>👥 Line Up</td>          <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🚶 Walking ID</td>       <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🧪 Contam. Scent</td>   <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>❌ NSI</td>              <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🚗 VPU</td>             <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🎣 Ctrl. Casting</td>   <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>➕ Cast. Intersection</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🙈 Blind Trail</td>     <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🌉 Bridge</td>          <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+        <tr><td>🌊 River</td>           <td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span>🐾 Mantrailing Log</span>
+    <span>Page 1 of 2</span>
+    <span>github.com/cracked-beans/mntrlng-log</span>
+  </div>
+</div>
+
+<!-- ████████████████████  PAGE 2  ████████████████████ -->
+<div class="page">
+
+  <div class="header">
+    <h1>🐾 Assessment &amp; Notes</h1>
+    <div class="header-right">
+      <div style="font-size:6.5pt">Dog: ______________________</div>
+      <div style="font-size:6.5pt">Date: _ _ / _ _ / _ _ _ _</div>
+    </div>
+  </div>
+
+  <!-- COMPONENT NOTES -->
+  <h2>Component Notes <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:5pt">— describe what happened for any non-Good result</span></h2>
+  <div class="two">
+    <div>
+      <span class="flbl">Component</span>
+      <div class="line2"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+    <div>
+      <span class="flbl">Component</span>
+      <div class="line2"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+  </div>
+  <div class="two" style="margin-top:0.5mm">
+    <div>
+      <span class="flbl">Component</span>
+      <div class="line2"></div>
+      <div class="noteline"></div>
+    </div>
+    <div>
+      <span class="flbl">Component</span>
+      <div class="line2"></div>
+      <div class="noteline"></div>
+    </div>
+  </div>
+
+  <!-- EVALUATION -->
+  <h2>Evaluation</h2>
+  <div class="two">
+    <!-- Handler -->
+    <div>
+      <h2 class="light">Handler</h2>
+      <div class="r-blk" style="margin-top:1mm">
+        <div class="r-row"><span class="r-lbl">Starting Routine</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Leash Handling</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Body Position</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Reading the Dog</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+      </div>
+      <span class="flbl" style="margin-top:1mm">Notes</span>
+      <div class="noteline"></div>
+    </div>
+    <!-- Dog -->
+    <div>
+      <h2 class="light">Dog</h2>
+      <div class="r-blk" style="margin-top:1mm">
+        <div class="r-row"><span class="r-lbl">Motivation</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Confidence</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Negatives</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+        <div class="r-row"><span class="r-lbl">Other</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+      </div>
+      <span class="flbl" style="margin-top:1mm">Notes</span>
+      <div class="noteline"></div>
+    </div>
+  </div>
+
+  <!-- TRAIL NOTES -->
+  <h2>Trail Review</h2>
+  <div class="row" style="align-items:flex-start;margin-bottom:1mm">
+    <div class="col3">
+      <span class="flbl">Goal of the trail</span>
+      <div class="line" style="margin-bottom:0"></div>
+    </div>
+    <div class="col" style="padding-top:3.5mm">
+      <div class="cg"><span class="ck" style="font-size:6.5pt">Achieved</span></div>
+      <div class="cg" style="margin-top:0.5mm"><span class="ck" style="font-size:6.5pt">Partial</span></div>
+      <div class="cg" style="margin-top:0.5mm"><span class="ck" style="font-size:6.5pt">Not achieved</span></div>
+    </div>
+  </div>
+
+  <span class="flbl">Trail comments (overall impression)</span>
+  <div class="noteline"></div>
+  <div class="noteline"></div>
+
+  <span class="flbl">Observations (distractions, unexpected events, handler/dog problems)</span>
+  <div class="noteline"></div>
+  <div class="noteline"></div>
+
+  <!-- SKETCH + TAGS -->
+  <div class="two" style="margin-top:1mm;align-items:flex-start">
+    <div>
+      <span class="flbl">Route sketch (optional)</span>
+      <div class="sketch">sketch trail here</div>
+    </div>
+    <div>
+      <span class="flbl">Tags</span>
+      <div class="line" style="margin-bottom:2mm"></div>
+      <span class="flbl">Free notes</span>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline" style="margin-bottom:0"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>🐾 Mantrailing Log</span>
+    <span>Page 2 of 2</span>
+    <span>github.com/cracked-beans/mntrlng-log</span>
+  </div>
+</div>
+
+</body>
+</html>
