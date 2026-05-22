@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mantrailing Training Log — Single Page</title>
+<style>
+@page { size: A5 portrait; margin: 6mm 7mm 6mm 7mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 6.5pt;
+  color: #111;
+  background: #fff;
+  width: 134mm;
+}
+
+/* ── Typography ── */
+h1 {
+  font-size: 9.5pt;
+  font-weight: 700;
+  border-bottom: 1.2pt solid #111;
+  padding-bottom: 1mm;
+  margin-bottom: 1.5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  letter-spacing: .02em;
+}
+h1 small { font-size: 6.5pt; font-weight: 400; color: #555; }
+h2 {
+  font-size: 6pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  background: #111;
+  color: #fff;
+  padding: 0.5mm 1.5mm;
+  margin: 1.5mm 0 0.8mm;
+  display: inline-block;
+}
+
+/* ── Field rows ── */
+.row { display: flex; gap: 2mm; margin-bottom: 1mm; align-items: flex-end; }
+.field { flex: 1; }
+.field.w2 { flex: 2; }
+.field.w3 { flex: 3; }
+.lbl { display: block; font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
+       letter-spacing: .04em; color: #666; margin-bottom: 0.3mm; }
+.line { border: none; border-bottom: 0.5pt solid #999; width: 100%; height: 3.5mm; display: block; }
+
+/* ── Checkbox groups ── */
+.cg { display: flex; flex-wrap: wrap; gap: 0.5mm 2mm; line-height: 1; margin-bottom: 0.3mm; }
+.cg s {
+  display: inline-flex; align-items: center; gap: 0.8mm;
+  font-size: 6.5pt; color: #111; text-decoration: none; white-space: nowrap;
+}
+.cg s::before {
+  content: '';
+  display: inline-block;
+  width: 2.6mm; height: 2.6mm;
+  border: 0.5pt solid #555;
+  flex-shrink: 0;
+}
+
+/* ── Components table ── */
+.comp-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5mm; margin-bottom: 0.5mm; }
+.comp-table { width: 100%; border-collapse: collapse; }
+.comp-table th {
+  font-size: 5.2pt; font-weight: 700; text-transform: uppercase;
+  background: #eee; border: 0.3pt solid #bbb; padding: 0.4mm 0.6mm;
+  text-align: center; white-space: nowrap;
+}
+.comp-table th.left { text-align: left; }
+.comp-table td {
+  border: 0.3pt solid #ddd; padding: 0.35mm 0.5mm;
+  font-size: 6pt; vertical-align: middle; line-height: 1.1;
+}
+.comp-table td.c { text-align: center; }
+.comp-table tr:nth-child(even) td { background: #f7f7f7; }
+.sq { width: 2.4mm; height: 2.4mm; border: 0.4pt solid #666; display: inline-block; }
+
+/* ── Rating ── */
+.ratings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3mm; }
+.r-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6mm; }
+.r-row span { font-size: 6pt; flex: 1; }
+.dots { display: flex; gap: 0.8mm; }
+.dots b {
+  width: 4mm; height: 4mm; border: 0.5pt solid #666;
+  border-radius: 50%; font-size: 5pt; font-weight: 400;
+  display: flex; align-items: center; justify-content: center; color: #777;
+}
+
+/* ── Notes ── */
+.noteline { border: none; border-bottom: 0.4pt solid #bbb; width: 100%; height: 3.5mm; display: block; margin-bottom: 1mm; }
+
+/* ── Two-col generic ── */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5mm; }
+.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 2mm; }
+
+.sect-lbl { font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .04em; color: #444; margin: 0.5mm 0 0.3mm; display: block; }
+
+.footer { font-size: 5pt; color: #aaa; text-align: center; margin-top: 1mm;
+          border-top: 0.3pt solid #ddd; padding-top: 0.8mm; }
+
+@media screen {
+  html { background: #999; }
+  body { background: #fff; padding: 6mm 7mm; margin: 10px auto;
+         box-shadow: 0 2px 10px rgba(0,0,0,.4); min-height: 198mm; }
+}
+</style>
+</head>
+<body>
+
+<h1>🐾 Mantrailing Training Log <small>__ / __ / ______</small></h1>
+
+<!-- BASICS -->
+<div class="row">
+  <div class="field w2"><span class="lbl">Dog</span><div class="line"></div></div>
+  <div class="field w2"><span class="lbl">Handler</span><div class="line"></div></div>
+  <div class="field"><span class="lbl">Time</span><div class="line"></div></div>
+  <div class="field w2"><span class="lbl">Location</span><div class="line"></div></div>
+  <div class="field"><span class="lbl">Instructor</span><div class="line"></div></div>
+</div>
+
+<!-- TRAIL SETUP -->
+<h2>Trail Setup</h2>
+<div class="three" style="margin-bottom:0.8mm">
+  <div>
+    <span class="sect-lbl">Type of start</span>
+    <div class="cg" style="flex-direction:column;gap:0.4mm">
+      <s>Intensity</s><s>Delayed Start</s><s>Scent Article</s><s>Casting</s><s>Flip</s>
+    </div>
+  </div>
+  <div>
+    <span class="sect-lbl">Trail knowledge</span>
+    <div class="cg" style="flex-direction:column;gap:0.4mm">
+      <s>Known</s><s>Blind start</s><s>Blind end</s><s>100% Blind</s><s>Blind w/ help</s><s>Double blind</s>
+    </div>
+  </div>
+  <div>
+    <span class="sect-lbl">Age of trail</span>
+    <div class="cg" style="flex-direction:column;gap:0.4mm">
+      <s>Fresh</s><s>3 hours</s><s>6 hours</s><s>12 hours</s><s>24 hours</s><s>25+ hours</s>
+    </div>
+  </div>
+</div>
+
+<div class="two" style="margin-bottom:0.8mm">
+  <div>
+    <span class="sect-lbl">Length</span>
+    <div class="cg"><s>&lt;100m</s><s>100–200</s><s>200–300</s><s>400–600</s><s>600–800</s><s>&gt;800m</s></div>
+    <span class="sect-lbl" style="margin-top:0.8mm">Surface</span>
+    <div class="cg"><s>Asphalt</s><s>Cement</s><s>Earth</s><s>Grass</s><s>Gravel</s><s>Mud</s><s>Sand</s><s>Mixed</s></div>
+    <span class="sect-lbl" style="margin-top:0.8mm">Time of day</span>
+    <div class="cg"><s>Dawn</s><s>Morning</s><s>Midday</s><s>Afternoon</s><s>Evening</s><s>Night</s></div>
+  </div>
+  <div>
+    <span class="sect-lbl">Weather (multi)</span>
+    <div class="cg" style="flex-direction:column;gap:0.4mm">
+      <s>Sun</s><s>50% Cloudy</s><s>100% Cloudy</s><s>Light rain</s><s>Heavy rain</s>
+      <s>Breeze</s><s>Wind</s><s>Storm</s><s>Fog</s><s>Snow</s>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom:0.5mm">
+  <div class="field"><span class="lbl">Area</span>
+    <div class="cg"><s>Rural</s><s>Urban</s><s>Mixed</s></div>
+  </div>
+  <div class="field w3"><span class="lbl">Sub-area</span><div class="line"></div></div>
+</div>
+
+<!-- RUNNER & SCENT -->
+<h2>Runner &amp; Scent</h2>
+<div class="two" style="margin-bottom:0.5mm">
+  <div>
+    <span class="sect-lbl">Runner profile</span>
+    <div class="cg"><s>Unknown</s><s>Known</s><s>Frequent</s><s>Favourite</s><s>Child</s><s>Youth</s><s>Adult</s><s>Elderly</s><s>Handicapped</s></div>
+  </div>
+  <div>
+    <span class="sect-lbl">Scent article (multi)</span>
+    <div class="cg"><s>Soft</s><s>Hard</s><s>Big</s><s>Small</s><s>Target</s><s>Contaminated</s><s>Bag</s><s>No bag</s></div>
+    <span class="sect-lbl" style="margin-top:0.8mm">End position</span>
+    <div class="cg"><s>Sitting</s><s>Standing</s><s>Crouching</s><s>Walking</s><s>Lying</s></div>
+    <div class="cg" style="margin-top:0.4mm"><s>Hidden High</s><s>Hidden Low</s><s>Behind obst.</s><s>No runner</s></div>
+  </div>
+</div>
+
+<!-- COMPONENTS -->
+<h2>Components &nbsp;<span style="font-size:5pt;font-weight:400;letter-spacing:0;text-transform:none">✓ = trained &nbsp;·&nbsp; G = Good &nbsp;·&nbsp; P = Problems &nbsp;·&nbsp; H = With Help &nbsp;·&nbsp; X = Not Solved</span></h2>
+<div class="comp-wrap">
+  <table class="comp-table">
+    <thead><tr><th class="left">Component</th><th>✓</th><th>G</th><th>P</th><th>H</th><th>X</th></tr></thead>
+    <tbody>
+      <tr><td>🎯 Target</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>☁️ Weather</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🚪 Door / Obstacle ID</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🍴 Split Trail</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🪜 Obstacle Crossing</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>⬆️ High Find</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>⬇️ Low Find</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>↩️ Back Track</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🛑 Stop / Go</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🛣️ Change Surface</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+    </tbody>
+  </table>
+  <table class="comp-table">
+    <thead><tr><th class="left">Component</th><th>✓</th><th>G</th><th>P</th><th>H</th><th>X</th></tr></thead>
+    <tbody>
+      <tr><td>👥 Line Up</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🚶 Walking ID</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🧪 Contaminated Scent</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>❌ NSI</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🚗 VPU</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🎣 Controlled Casting</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>➕ Casting Intersection</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🙈 Blind Trail</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🌉 Bridge</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+      <tr><td>🌊 River</td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td><td class="c"><span class="sq"></span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ASSESSMENT -->
+<h2>Assessment</h2>
+<div class="two">
+  <div>
+    <span class="sect-lbl">Handler &nbsp;<span style="font-size:5pt;font-weight:400;text-transform:none">(circle)</span></span>
+    <div class="r-row"><span>Starting Routine</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Leash Handling</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Body Position</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Reading the Dog</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+  </div>
+  <div>
+    <span class="sect-lbl">Dog</span>
+    <div class="r-row"><span>Motivation</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Confidence</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Negatives</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+    <div class="r-row"><span>Other</span><div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div>
+  </div>
+</div>
+
+<!-- NOTES -->
+<h2>Notes &amp; Observations</h2>
+<div class="row" style="margin-bottom:0.5mm">
+  <div class="field"><span class="lbl">Goal</span><div class="line"></div></div>
+  <div class="field">
+    <span class="lbl">Goal achieved?</span>
+    <div class="cg"><s>Yes</s><s>Partially</s><s>No</s></div>
+  </div>
+</div>
+<div class="lbl" style="margin-bottom:0.3mm">Comments / Observations</div>
+<div class="noteline"></div>
+<div class="noteline"></div>
+<div class="row" style="margin-bottom:0">
+  <div class="field w3"><span class="lbl">Tags</span><div class="line"></div></div>
+</div>
+
+<div class="footer">Mantrailing Training Log · github.com/cracked-beans/mntrlng-log</div>
+
+</body>
+</html>
