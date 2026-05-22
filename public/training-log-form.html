@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mantrailing Training Log</title>
+<style>
+/* ── Print setup ─────────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 8mm 9mm 8mm 9mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt; color: #111; background: #fff; }
+
+/* ── Layout helpers ──────────────────────────────────────────── */
+.page { width: 130mm; min-height: 190mm; padding: 0; page-break-after: always; }
+.page:last-child { page-break-after: avoid; }
+
+h1 { font-size: 11pt; font-weight: 700; letter-spacing: .03em; border-bottom: 1.5pt solid #111; padding-bottom: 1.5mm; margin-bottom: 2mm; display: flex; justify-content: space-between; align-items: baseline; }
+h1 span { font-size: 7pt; font-weight: 400; color: #555; }
+h2 { font-size: 8pt; font-weight: 700; background: #111; color: #fff; padding: 0.8mm 2mm; margin: 2.5mm 0 1.5mm; letter-spacing: .04em; text-transform: uppercase; }
+h3 { font-size: 7pt; font-weight: 700; margin: 1.5mm 0 1mm; color: #333; text-transform: uppercase; letter-spacing: .03em; }
+
+.row  { display: flex; gap: 3mm; margin-bottom: 1.8mm; align-items: flex-end; }
+.col  { flex: 1; }
+.col2 { flex: 2; }
+.col3 { flex: 3; }
+
+label { display: block; font-size: 6.5pt; color: #555; margin-bottom: 0.5mm; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+.line { border: none; border-bottom: 0.5pt solid #aaa; width: 100%; height: 4mm; display: block; }
+.line-lg { border: none; border-bottom: 0.5pt solid #aaa; width: 100%; height: 5mm; display: block; margin-bottom: 0.8mm; }
+
+/* Checkbox groups */
+.checks { display: flex; flex-wrap: wrap; gap: 0.8mm 2.5mm; margin-bottom: 0.5mm; }
+.checks label { font-size: 7pt; color: #111; text-transform: none; letter-spacing: 0; font-weight: 400; display: flex; align-items: center; gap: 1mm; cursor: default; }
+.checks label::before { content: ''; display: inline-block; width: 3mm; height: 3mm; border: 0.6pt solid #555; flex-shrink: 0; vertical-align: middle; }
+
+/* Rating row */
+.rating-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2mm; }
+.rating-row span:first-child { flex: 1; font-size: 7pt; }
+.dots { display: flex; gap: 1.2mm; }
+.dots b { width: 5mm; height: 5mm; border: 0.6pt solid #555; display: inline-block; border-radius: 50%; font-size: 6pt; text-align: center; line-height: 5mm; font-weight: 400; color: #777; }
+
+/* Components table */
+table { width: 100%; border-collapse: collapse; margin-bottom: 1mm; }
+table th { font-size: 6pt; font-weight: 700; text-transform: uppercase; background: #eee; border: 0.4pt solid #bbb; padding: 0.6mm 1mm; text-align: center; }
+table th:first-child { text-align: left; }
+table td { border: 0.4pt solid #ddd; padding: 0.5mm 1mm; font-size: 6.8pt; vertical-align: middle; }
+table td:not(:first-child) { text-align: center; }
+table tr:nth-child(even) td { background: #fafafa; }
+.sq { width: 3mm; height: 3mm; border: 0.5pt solid #666; display: inline-block; }
+
+/* Notes lines */
+.notelines { margin-top: 1mm; }
+.notelines hr { border: none; border-bottom: 0.5pt solid #bbb; margin-bottom: 2.5mm; }
+
+.divider { border: none; border-top: 0.4pt solid #ddd; margin: 2mm 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.footer { font-size: 6pt; color: #aaa; text-align: center; margin-top: 2mm; border-top: 0.4pt solid #eee; padding-top: 1mm; }
+
+@media screen {
+  body { background: #ccc; padding: 10px; }
+  .page { background: #fff; padding: 8mm 9mm; margin: 0 auto 20px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ PAGE 1 ═══════════════════════════════ -->
+<div class="page">
+
+  <h1>🐾 Mantrailing Training Log <span>_ _ / _ _ / _ _ _ _</span></h1>
+
+  <!-- BASICS -->
+  <h2>1 · Basics</h2>
+  <div class="row">
+    <div class="col2"><label>Dog</label><div class="line"></div></div>
+    <div class="col"><label>Handler</label><div class="line"></div></div>
+    <div class="col"><label>Time</label><div class="line"></div></div>
+  </div>
+  <div class="row">
+    <div class="col3"><label>Location</label><div class="line"></div></div>
+    <div class="col"><label>Instructor</label><div class="line"></div></div>
+  </div>
+
+  <!-- TRAIL SETUP -->
+  <h2>2 · Trail Setup</h2>
+
+  <h3>Type of Start</h3>
+  <div class="checks">
+    <label>Intensity</label>
+    <label>Delayed Start</label>
+    <label>Scent Article</label>
+    <label>Casting</label>
+    <label>Flip</label>
+  </div>
+
+  <h3>Trail Knowledge</h3>
+  <div class="checks">
+    <label>Known</label>
+    <label>Blind start</label>
+    <label>Blind end</label>
+    <label>100% Blind</label>
+    <label>Blind w/ help</label>
+    <label>Double blind</label>
+  </div>
+
+  <div class="two-col" style="margin-top:1mm">
+    <div>
+      <h3>Age of Trail</h3>
+      <div class="checks" style="flex-direction:column; gap:0.8mm">
+        <label>Fresh</label>
+        <label>3 hours</label>
+        <label>6 hours</label>
+        <label>12 hours</label>
+        <label>24 hours</label>
+        <label>25+ hours</label>
+      </div>
+    </div>
+    <div>
+      <h3>Time of Day</h3>
+      <div class="checks" style="flex-direction:column; gap:0.8mm">
+        <label>Dawn</label>
+        <label>Morning</label>
+        <label>Midday</label>
+        <label>Afternoon</label>
+        <label>Evening</label>
+        <label>Night</label>
+      </div>
+    </div>
+  </div>
+
+  <h3>Trail Length</h3>
+  <div class="checks">
+    <label>&lt;100 m</label>
+    <label>100–200 m</label>
+    <label>200–300 m</label>
+    <label>400–600 m</label>
+    <label>600–800 m</label>
+    <label>&gt;800 m</label>
+  </div>
+
+  <h3>Area</h3>
+  <div class="checks">
+    <label>Rural</label>
+    <label>Urban</label>
+    <label>Mixed</label>
+  </div>
+  <div class="row" style="margin-top:1mm">
+    <div class="col"><label>Sub-area (e.g. Woods, City Center…)</label><div class="line"></div></div>
+  </div>
+
+  <h3>Surface</h3>
+  <div class="checks">
+    <label>Asphalt</label>
+    <label>Cement</label>
+    <label>Earth</label>
+    <label>Grass</label>
+    <label>Gravel</label>
+    <label>Mud</label>
+    <label>Sand</label>
+    <label>Mixed</label>
+  </div>
+
+  <h3>Weather <span style="font-size:6pt;font-weight:400;text-transform:none">(tick all that apply)</span></h3>
+  <div class="checks">
+    <label>Sun</label>
+    <label>50% Cloudy</label>
+    <label>100% Cloudy</label>
+    <label>Light rain</label>
+    <label>Heavy rain</label>
+    <label>Breeze</label>
+    <label>Wind</label>
+    <label>Storm</label>
+    <label>Fog</label>
+    <label>Snow</label>
+  </div>
+
+  <div class="footer">Page 1 of 4 · Mantrailing Training Log</div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 2 ═══════════════════════════════ -->
+<div class="page">
+
+  <!-- RUNNER & SCENT -->
+  <h2>3 · Runner &amp; Scent Article</h2>
+
+  <h3>Runner Profile</h3>
+  <div class="checks">
+    <label>Unknown</label>
+    <label>Known</label>
+    <label>Frequent</label>
+    <label>Favourite</label>
+    <label>Child</label>
+    <label>Youth</label>
+    <label>Adult</label>
+    <label>Elderly</label>
+    <label>Handicapped</label>
+  </div>
+
+  <h3>Scent Article <span style="font-size:6pt;font-weight:400;text-transform:none">(tick all that apply)</span></h3>
+  <div class="checks">
+    <label>Soft</label>
+    <label>Hard</label>
+    <label>Big</label>
+    <label>Small</label>
+    <label>Target</label>
+    <label>Contaminated</label>
+    <label>Bag</label>
+    <label>No bag</label>
+  </div>
+
+  <h3>End Position</h3>
+  <div class="two-col">
+    <div>
+      <div style="font-size:6.5pt;color:#555;margin-bottom:0.8mm;font-weight:600">ON SIGHT</div>
+      <div class="checks" style="flex-direction:column;gap:0.8mm">
+        <label>Sitting</label>
+        <label>Standing</label>
+        <label>Crouching</label>
+        <label>Walking</label>
+        <label>Lying</label>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:6.5pt;color:#555;margin-bottom:0.8mm;font-weight:600">HIDDEN</div>
+      <div class="checks" style="flex-direction:column;gap:0.8mm">
+        <label>High</label>
+        <label>Low</label>
+        <label>Behind obstacle</label>
+        <label>Lying covered</label>
+        <label>No runner</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <h2>4 · Components</h2>
+  <div class="row" style="margin-bottom:1.5mm">
+    <div class="col3"><label>Goal of the trail</label><div class="line"></div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38%">Component</th>
+        <th style="width:8%">✓</th>
+        <th>Good</th>
+        <th>Problems</th>
+        <th>W/ Help</th>
+        <th>Not Solved</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>🎯 Target</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>☁️ Weather</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🚪 Door / Obstacle ID</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🍴 Split Trail</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🪜 Obstacle Crossing</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>⬆️ High Find</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>⬇️ Low Find</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>↩️ Back Track</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🛑 Stop / Go</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🛣️ Change Surface</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>👥 Line Up</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🚶 Walking ID</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🧪 Contaminated Scent</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>❌ NSI</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🚗 VPU</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🎣 Controlled Casting</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>➕ Casting Intersection</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🙈 Blind Trail</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🌉 Bridge</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>🌊 River</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+      <tr><td>⭐ Other: _______________</td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td><td><span class="sq"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">Page 2 of 4 · Mantrailing Training Log</div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 3 ═══════════════════════════════ -->
+<div class="page">
+
+  <!-- COMPONENT COMMENTS -->
+  <h2>4 · Component Comments</h2>
+  <p style="font-size:6.5pt;color:#555;margin-bottom:2mm">For each component that was <em>not Good</em>, note what happened:</p>
+
+  <div class="notelines">
+    <div style="font-size:6.8pt;color:#777;margin-bottom:0.5mm">Component: ____________________</div>
+    <hr><hr>
+    <div style="font-size:6.8pt;color:#777;margin-bottom:0.5mm;margin-top:1mm">Component: ____________________</div>
+    <hr><hr>
+    <div style="font-size:6.8pt;color:#777;margin-bottom:0.5mm;margin-top:1mm">Component: ____________________</div>
+    <hr><hr>
+    <div style="font-size:6.8pt;color:#777;margin-bottom:0.5mm;margin-top:1mm">Component: ____________________</div>
+    <hr><hr>
+  </div>
+
+  <!-- ASSESSMENT -->
+  <h2>5 · Assessment</h2>
+
+  <div class="two-col">
+    <!-- Handler -->
+    <div>
+      <h3>Handler Evaluation</h3>
+      <div class="rating-row">
+        <span>Starting Routine</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Leash Handling</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Body Position</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Reading the Dog</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+    </div>
+    <!-- Dog -->
+    <div>
+      <h3>Dog Evaluation</h3>
+      <div class="rating-row">
+        <span>Motivation</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Confidence</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Negatives</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+      <div class="rating-row">
+        <span>Other</span>
+        <div class="dots"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes for evaluations -->
+  <div class="row" style="margin-top:2mm">
+    <div class="col"><label>Handler notes</label><div class="line-lg"></div></div>
+    <div class="col"><label>Dog notes</label><div class="line-lg"></div></div>
+  </div>
+
+  <hr class="divider">
+
+  <label style="margin-bottom:1mm">Trail comments (overall impression)</label>
+  <div class="notelines"><hr><hr></div>
+
+  <label style="margin-bottom:1mm;margin-top:2mm">Observations (distractions, unexpected situations, problems)</label>
+  <div class="notelines"><hr><hr><hr></div>
+
+  <label style="margin-bottom:1mm;margin-top:2mm">Trail goal — was it achieved?</label>
+  <div class="checks" style="margin-bottom:1.5mm">
+    <label>Yes, fully</label>
+    <label>Partially</label>
+    <label>No</label>
+  </div>
+  <div class="notelines"><hr></div>
+
+  <div class="footer">Page 3 of 4 · Mantrailing Training Log</div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 4 ═══════════════════════════════ -->
+<div class="page">
+
+  <!-- ATTACHMENTS NOTE -->
+  <h2>6 · Attachments &amp; Media</h2>
+  <p style="font-size:7pt;color:#555;margin-bottom:1.5mm">Record references to files you'll attach in the app later:</p>
+  <div class="two-col">
+    <div>
+      <h3>GPX Tracks</h3>
+      <div style="font-size:7pt;margin-bottom:0.5mm">Dog track file: <div class="line"></div></div>
+      <div class="checks" style="margin-top:1mm">
+        <label>Dog</label><label>Runner</label><label>Custom</label>
+      </div>
+      <div style="font-size:7pt;margin-top:1.5mm">Runner track file: <div class="line"></div></div>
+      <div style="font-size:7pt;margin-top:1.5mm">Est. length (m): <div class="line"></div></div>
+    </div>
+    <div>
+      <h3>Photos / Video</h3>
+      <div style="font-size:7pt;margin-bottom:0.8mm">Photo filenames / IDs:</div>
+      <div class="notelines"><hr><hr><hr></div>
+      <div style="font-size:7pt;margin-top:1.5mm">Video links:</div>
+      <div class="notelines"><hr><hr></div>
+    </div>
+  </div>
+
+  <!-- TAGS & NOTES -->
+  <h2>7 · Tags &amp; Free Notes</h2>
+
+  <label style="margin-bottom:1mm">Tags (comma-separated)</label>
+  <div class="line" style="margin-bottom:2mm"></div>
+
+  <label style="margin-bottom:1mm">Free notes</label>
+  <div class="notelines">
+    <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
+  </div>
+
+  <!-- QUICK-REFERENCE LEGEND -->
+  <h2>Quick Reference</h2>
+  <div class="two-col" style="font-size:6.5pt;line-height:1.6">
+    <div>
+      <strong>Status codes</strong><br>
+      ✅ Good — executed independently<br>
+      ⚠️ Problems — attempted, errors<br>
+      🤝 With Help — needed guidance<br>
+      ❌ Not Solved — unable to complete<br><br>
+      <strong>Ratings scale</strong><br>
+      1 = Very poor &nbsp; 3 = Acceptable<br>
+      5 = Excellent
+    </div>
+    <div>
+      <strong>Area sub-types</strong><br>
+      Rural: Soil · Farm · Bushes · Woods<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meadows · Beach · Mix<br>
+      Urban: City Ctr · Outskirts · Town<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Residential · Shopping<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Industrial · Sports<br>
+      Mixed
+    </div>
+  </div>
+
+  <div style="margin-top:3mm;border:0.5pt solid #bbb;padding:2mm;font-size:6.5pt;border-radius:1mm">
+    <strong>Transfer to app:</strong> After the session, open <em>Mantrailing Log</em>, tap <strong>+</strong>, and enter these notes.
+    Attach GPX files and photos from your phone. The app will auto-calculate track length and populate the history heatmap.
+  </div>
+
+  <div class="footer">Page 4 of 4 · Mantrailing Training Log — v1.0 · cracked-beans/mntrlng-log</div>
+</div>
+
+</body>
+</html>
